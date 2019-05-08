@@ -9,3 +9,6 @@
 >  * Winner get 1 point:
 >  * Looser get -1 point
 
+## Aditional Requirements
+
+1. A user must be able to select their profile picture from given list.(will need to get some sort of api of famous characters images)
