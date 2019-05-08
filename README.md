@@ -1,6 +1,6 @@
 # Pool Competition 
 
-A small application to help determine who is the best pool player.
+A great application to help determine who is the best pool player.
 
 [Requirements](Documentation\Requirements.md)
 
