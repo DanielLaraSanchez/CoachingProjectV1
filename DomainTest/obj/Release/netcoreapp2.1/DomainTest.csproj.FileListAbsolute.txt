@@ -1,0 +1,4 @@
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Release/netcoreapp2.1/DomainTest.csprojAssemblyReference.cache
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Release/netcoreapp2.1/DomainTest.csproj.CoreCompileInputs.cache
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Release/netcoreapp2.1/DomainTest.AssemblyInfoInputs.cache
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Release/netcoreapp2.1/DomainTest.AssemblyInfo.cs

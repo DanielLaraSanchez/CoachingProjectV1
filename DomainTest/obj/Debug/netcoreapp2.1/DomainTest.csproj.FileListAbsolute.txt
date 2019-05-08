@@ -1,0 +1,17 @@
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/NUnit3.TestAdapter.dll
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/NUnit3.TestAdapter.pdb
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/nunit.engine.netstandard.dll
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/DomainTest.deps.json
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/DomainTest.runtimeconfig.json
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/DomainTest.runtimeconfig.dev.json
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/DomainTest.dll
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/DomainTest.pdb
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/Domain.dll
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/bin/Debug/netcoreapp2.1/Domain.pdb
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Debug/netcoreapp2.1/DomainTest.csprojAssemblyReference.cache
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Debug/netcoreapp2.1/DomainTest.csproj.CoreCompileInputs.cache
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Debug/netcoreapp2.1/DomainTest.AssemblyInfoInputs.cache
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Debug/netcoreapp2.1/DomainTest.AssemblyInfo.cs
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Debug/netcoreapp2.1/DomainTest.csproj.CopyComplete
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Debug/netcoreapp2.1/DomainTest.dll
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/obj/Debug/netcoreapp2.1/DomainTest.pdb

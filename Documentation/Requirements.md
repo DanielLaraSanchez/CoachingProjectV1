@@ -1,0 +1,11 @@
+# Requirements
+## User Requirements
+
+1. A player must be able to create a game, against another player
+1. When creating a game the winner must be selected.
+1. The opponent must confirm the result of the game.
+1. All players must be able to see a ranking table of all players including their points
+1. Point should be calculate by:
+>  * Winner get 1 point:
+>  * Looser get -1 point
+

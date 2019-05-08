@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{38CD4CC9-D269-4DF1-BF2F-91F836C499A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainTest", "DomainTest\DomainTest.csproj", "{2F571F5B-45D8-415F-A20E-4091A2273866}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38CD4CC9-D269-4DF1-BF2F-91F836C499A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38CD4CC9-D269-4DF1-BF2F-91F836C499A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38CD4CC9-D269-4DF1-BF2F-91F836C499A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38CD4CC9-D269-4DF1-BF2F-91F836C499A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F571F5B-45D8-415F-A20E-4091A2273866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F571F5B-45D8-415F-A20E-4091A2273866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F571F5B-45D8-415F-A20E-4091A2273866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F571F5B-45D8-415F-A20E-4091A2273866}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

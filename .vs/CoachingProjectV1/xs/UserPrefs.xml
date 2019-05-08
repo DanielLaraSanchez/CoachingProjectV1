@@ -1,0 +1,39 @@
+﻿<Properties StartupConfiguration="{2F571F5B-45D8-415F-A20E-4091A2273866}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/Player.cs">
+    <Files>
+      <File FileName="Domain/Game.cs" Line="9" Column="44" />
+      <File FileName="Domain/Score.cs" Line="12" Column="29" />
+      <File FileName="Domain/Ranking.cs" Line="8" Column="10" />
+      <File FileName="DomainTest/RankingTest.cs" Line="49" Column="10" />
+      <File FileName="DomainTest/GameTest.cs" Line="1" Column="1" />
+      <File FileName="DomainTest/PlayerTest.cs" Line="1" Column="1" />
+      <File FileName="DomainTest/ScoreTest.cs" Line="1" Column="1" />
+      <File FileName="Domain/Player.cs" Line="9" Column="27" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CoachingProjectV1" expanded="True">
+            <Node name="Domain" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Player.cs" selected="True" />
+            </Node>
+            <Node name="DomainTest" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="CoachingProjectV1" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.DomainTest PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
