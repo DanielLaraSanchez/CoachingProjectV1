@@ -22,6 +22,11 @@ namespace Domain
             EmailAdress = emailAddress;
         }
 
+        public void ConfirmGame(Game game)
+        {
+            game.IsConfirmed = true;
+        }
+
 
 
 

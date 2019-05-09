@@ -9,30 +9,30 @@ namespace Domain
     {
         public List<Score> scores = new List<Score>();
 
-        public Ranking() { }
+
+  
 
         public IEnumerable<Score> CalculateScores(List<Game> games)
         {
-            insertAllPlayerNamesInScoresArray(scores, games);
+            insertAllPlayerNamesInScoresArray(games);
 
 
             foreach (Game game in games)
             {
-                applyActionOnPlayersAfterGame(game, scores);
+                applyActionOnPlayersAfterGame(game);
 
             }
             return scores;
         }
 
-   
+        
 
 
-        public void applyActionOnPlayersAfterGame(Game game, List<Score> scores)
+        public void applyActionOnPlayersAfterGame(Game game)
         {
             foreach(Score score in scores)
             {
                 actionOnWinnerAfterGame(game, score);
-
 
             }
 
@@ -48,7 +48,7 @@ namespace Domain
 
    
 
-        public void insertAllPlayerNamesInScoresArray(List<Score> scores, List<Game> games)
+        public void insertAllPlayerNamesInScoresArray(List<Game> games)
         {
             var arrayNames = getAllPlayerNames(games);
 
@@ -59,6 +59,8 @@ namespace Domain
                 scores.Add(score);
             }
         }
+
+
 
         public IEnumerable<string> getAllPlayerNames(List<Game> games)
         {
@@ -81,12 +83,6 @@ namespace Domain
 
 
     }
-
-
-
-
-
-
 
 
     }

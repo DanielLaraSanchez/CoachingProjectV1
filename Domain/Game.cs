@@ -9,6 +9,7 @@ namespace Domain
         public Player Player2 { get; set; }
         public Player Winner { get; set; }
         public Player Looser { get; set; }
+        public Boolean IsConfirmed { get; internal set; }
 
 
 
@@ -18,7 +19,6 @@ namespace Domain
             Player2 = player2;
         }
 
-       
 
     }
 

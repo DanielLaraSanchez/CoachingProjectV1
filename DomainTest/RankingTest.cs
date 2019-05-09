@@ -65,25 +65,96 @@ namespace DomainTest
             players.ShouldBeUnique();
             players.SequenceEqual(allPlayersNames).ShouldBeTrue();
         }
-       
-
-
-
-
-
 
 
         [Test]
         [Category("Unit")]
         public void CalculateScores_WinningPlayerScoresOnePoint()
         {
+            var player1 = new Player("Daniel");
+            var player2 = new Player("James");
+    
+            var game1 = new Game(player1, player2);
+
+            game1.Winner = player1;
+            game1.Looser = player2;
+       
+            var games = new List<Game>() {
+                    game1,
+            };
+            var ranking = new Ranking();
+            var scores = ranking.CalculateScores(games);
+            var winnerPoints = scores.Max(x => x.Points);
+            winnerPoints.ShouldBe(1);
 
         }
+
         [Test]
         [Category("Unit")]
-        public void CalculateScores_LoosingPlayerScoresMinusOnePoint()
+        public void GetAllPlayerNames_GetsAllNames()
         {
+            var player1 = new Player("Daniel");
+            var player2 = new Player("James");
 
+            var game1 = new Game(player1, player2);
+
+            game1.Winner = player1;
+            game1.Looser = player2;
+
+            var games = new List<Game>() {
+                    game1,
+            };
+            var ranking = new Ranking();
+            var allPlayerNames = ranking.getAllPlayerNames(games);
+            allPlayerNames.Count().ShouldBe(2);
+            allPlayerNames.ShouldContain("Daniel");
         }
+
+        [Test]
+        [Category("Unit")]
+        public void InsertsAllNamesInScoresArray()
+        {
+            var player1 = new Player("Daniel");
+            var player2 = new Player("James");
+
+            var game1 = new Game(player1, player2);
+
+            game1.Winner = player1;
+            game1.Looser = player2;
+
+            var games = new List<Game>() {
+                    game1,
+            };
+            var ranking = new Ranking();
+
+            ranking.insertAllPlayerNamesInScoresArray(games);
+            ranking.scores.Count().ShouldBe(2);
+          
+        }
+
+
+        [Test]
+        [Category("Unit")]
+        public void ActionOnWinnerAfterGame()
+        {
+            var player1 = new Player("Daniel");
+            var player2 = new Player("James");
+
+            var game1 = new Game(player1, player2);
+
+            game1.Winner = player1;
+
+            var score1 = new Score(player1.Name);
+            var ranking = new Ranking();
+
+            ranking.actionOnWinnerAfterGame(game1, score1);
+
+            score1.Player.ShouldBe("Daniel");
+            score1.Points.ShouldBe(1);
+        }
+
+
+
+
     }
 }
