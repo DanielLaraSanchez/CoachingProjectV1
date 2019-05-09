@@ -8,6 +8,7 @@ namespace Domain
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
         public Player Winner { get; set; }
+        public Player Looser { get; set; }
 
 
 

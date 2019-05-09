@@ -46,12 +46,16 @@ namespace DomainTest
             var game1 = new Game(player1, player2);
             var game2 = new Game(player3, player4);
 
+            game1.Winner = player1;
+            game1.Looser = player2;
+            game2.Winner = player3;
+            game2.Looser = player4;
 
-            var games = new List<Game>() { 
+            var games = new List<Game>() {
                     game1,
                     game2
 
-            }; // we need some actual games here.
+            };
 
             var allPlayersNames = games.Select(game => game.Player1.Name).Union(games.Select(game => game.Player2.Name)).OrderBy(playerName => playerName);
             var ranking = new Ranking();
@@ -61,7 +65,25 @@ namespace DomainTest
             players.ShouldBeUnique();
             players.SequenceEqual(allPlayersNames).ShouldBeTrue();
         }
+       
 
 
+
+
+
+
+
+        [Test]
+        [Category("Unit")]
+        public void CalculateScores_WinningPlayerScoresOnePoint()
+        {
+
+        }
+        [Test]
+        [Category("Unit")]
+        public void CalculateScores_LoosingPlayerScoresMinusOnePoint()
+        {
+
+        }
     }
 }

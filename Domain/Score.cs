@@ -6,10 +6,9 @@ namespace Domain
         public string Player { get; set; }
         public int Points { get; set; }
 
-        public Score(string player, int points)
+        public Score(string player)
         {
             Player = player;
-            Points = points;
         }
     }
 }
