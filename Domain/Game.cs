@@ -10,6 +10,7 @@ namespace Domain
         public Player Winner { get; set; }
         public Player Looser { get; set; }
         public Boolean IsConfirmed { get; internal set; }
+        public DateTime TimeStamp { get; }
 
 
 
@@ -17,6 +18,7 @@ namespace Domain
         {
             Player1 = player1;
             Player2 = player2;
+            TimeStamp = DateTime.Now;
         }
 
 
