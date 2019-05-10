@@ -2,6 +2,7 @@
 
 
 //how can i make a method be able to return 2 different things. if there is an IF statement?
+//IEnumerable, List, Array? why can i not use linq to order by with list
 
 namespace Domain
 {
@@ -10,18 +11,19 @@ namespace Domain
         public List<Score> scores = new List<Score>();
 
 
-  
+
 
         public IEnumerable<Score> CalculateScores(List<Game> games)
         {
             insertAllPlayerNamesInScoresArray(games);
-
 
             foreach (Game game in games)
             {
                 applyActionOnPlayersAfterGame(game);
 
             }
+            scores.Sort((a, b) => b.Points.CompareTo(a.Points));
+
             return scores;
         }
 

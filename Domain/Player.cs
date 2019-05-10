@@ -24,7 +24,20 @@ namespace Domain
 
         public void ConfirmGame(Game game)
         {
-            game.IsConfirmed = true;
+            if(game.Player1.Name == this.Name || game.Player2.Name == this.Name)
+            {
+                game.IsConfirmed = true;
+
+            }
+        }
+
+        public void SetGameResults(Game game, Player player)
+        {
+            if (game.Player1.Name == this.Name || game.Player2.Name == this.Name)
+            {
+                game.Winner = player;
+            }
+           
         }
 
 

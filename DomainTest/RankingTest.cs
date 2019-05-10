@@ -24,6 +24,29 @@ namespace DomainTest
 
         [Test]
         [Category("Unit")]
+        public void CalculateScores_RankingsAreOrderedByDescending()
+        {
+            var player1 = new Player("Daniel");
+            var player2 = new Player("James");
+            var game1 = new Game(player1, player2);
+
+            game1.Winner = player1;
+            game1.Looser = player2;
+       
+            var games = new List<Game>() {
+                    game1,
+            };
+            var rankingObject = new Ranking();
+            var ranking = rankingObject.CalculateScores(games);
+            var firstPlayerInRanking = ranking.First().Player;
+
+            firstPlayerInRanking.ShouldBe("Daniel");
+        }
+
+
+
+        [Test]
+        [Category("Unit")]
         public void CalculateScores_RankingsCanBeGeneratedFromGames()
         {
             var games = new List<Game>();
@@ -153,6 +176,14 @@ namespace DomainTest
             score1.Points.ShouldBe(1);
         }
 
+
+        [Test]
+        [Category("Unit")]
+        public void CanCreateNewRanking()
+        {
+            Ranking newRanking = new Ranking();
+            newRanking.ShouldNotBe(null);
+        }
 
 
 
