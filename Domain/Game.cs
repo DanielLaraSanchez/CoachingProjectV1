@@ -11,6 +11,7 @@ namespace Domain
         public Player Looser { get; set; }
         public Boolean IsConfirmed { get; internal set; }
         public DateTime TimeStamp { get; }
+        public Player Creator { get; set; }
 
 
 
