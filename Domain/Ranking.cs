@@ -3,15 +3,13 @@
 
 //how can i make a method be able to return 2 different things. if there is an IF statement?
 //IEnumerable, List, Array? why can i not use linq to order by with list. what is the difference between all of them?
+//how to do it so that only a particular class can change the properties of another class. 
 
 namespace Domain
 {
     public class Ranking
     {
         public List<Score> scores = new List<Score>();
-
-
-
 
         public IEnumerable<Score> CalculateScores(List<Game> games)
         {
@@ -20,8 +18,8 @@ namespace Domain
             foreach (Game game in games)
             {
                 applyActionOnPlayersAfterGame(game);
-
             }
+
             scores.Sort((a, b) => b.Points.CompareTo(a.Points));
 
             return scores;
@@ -35,14 +33,13 @@ namespace Domain
             foreach(Score score in scores)
             {
                 actionOnWinnerAfterGame(game, score);
-
             }
 
         }
 
         public void actionOnWinnerAfterGame(Game game, Score score)
         {
-            if(score.Player == game.Winner.Name)
+            if(score.Player == game.Winner.Name && game.IsConfirmed == true)
             {
                 score.Points += 1;
             }
@@ -69,14 +66,14 @@ namespace Domain
             var arrayNames = new List<string>();
             foreach (Game game in games)
             {
-                if (!arrayNames.Contains(game.Looser.Name))
+                if (!arrayNames.Contains(game.Player1.Name))
                 {
-                    arrayNames.Add(game.Looser.Name);
+                    arrayNames.Add(game.Player1.Name);
 
                 }
-                if (!arrayNames.Contains(game.Winner.Name))
+                if (!arrayNames.Contains(game.Player2.Name))
                 {
-                    arrayNames.Add(game.Winner.Name);
+                    arrayNames.Add(game.Player2.Name);
                 }
             }
 

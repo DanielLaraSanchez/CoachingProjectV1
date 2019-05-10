@@ -99,8 +99,8 @@ namespace DomainTest
     
             var game1 = new Game(player1, player2);
 
-            game1.Winner = player1;
-            game1.Looser = player2;
+            player1.SetGameResults(game1, player1);
+            player1.ConfirmGame(game1);
        
             var games = new List<Game>() {
                     game1,
@@ -165,11 +165,11 @@ namespace DomainTest
 
             var game1 = new Game(player1, player2);
 
-            game1.Winner = player1;
-
+            player1.SetGameResults(game1, player1);
+            player1.ConfirmGame(game1);
             var score1 = new Score(player1.Name);
             var ranking = new Ranking();
-
+            
             ranking.actionOnWinnerAfterGame(game1, score1);
 
             score1.Player.ShouldBe("Daniel");
