@@ -39,7 +39,7 @@ namespace Domain
             {
                 game.Winner = player;
                 var emailSender = new EmailSender();
-                emailSender.SendEmail(playerToBeSentConfirmationEmail);//players should have like a "pending confirmation inbox" which will be automatically loaded first thing when logging in. in case there is no items pending first thing loaded will be the creation of game form. 
+                game.EmailSender.SendEmail(playerToBeSentConfirmationEmail);//players should have like a "pending confirmation inbox" which will be automatically loaded first thing when logging in. in case there is no items pending first thing loaded will be the creation of game form. 
             }
            
         }

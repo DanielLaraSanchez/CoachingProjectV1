@@ -117,7 +117,7 @@ namespace DomainTest
 
         [Test]
         [Category("Unit")]
-        public void OnlyPlayerThatDidntSetResultsCanConfirmGame()
+        public void CreatorOfTheGameCantConfirmGame()
         {
             var player1 = new Player("Daniel");
             var player2 = new Player("James");
@@ -128,7 +128,7 @@ namespace DomainTest
             var game1 = player2.CreateGame(player1, player2);
 
             player1.SetGameResults(game1, player1);
-            player1.ConfirmGame(game1);
+            player2.ConfirmGame(game1);
        
             var games = new List<Game>() {
                     game1,

@@ -3,10 +3,12 @@
 using MailKit.Net.Smtp;
 using MailKit;
 using MimeKit;
+using Domain;
+using Domain.Interfaces;
 
 namespace Domain
 {
-    public class EmailSender
+    public class EmailSender: IEmailSender
     {
 
 
@@ -23,7 +25,7 @@ namespace Domain
                 message.Body = new TextPart("plain")
                 {
                     Text = $@"Hi {player.Name}," +
-                    	"\n\nI just wanted to let you know that Monica and I were going to go play some paintball, you in?\n\n-- Joey"
+                    	"\n\nI just wanted to let you know that Monica and I were going to go play some paintball, you in?\n\n-- Joey"//here we will have to add a link to the confirmation page
                 };
 
                 client.ServerCertificateValidationCallback = (s, c, h, e) => true;

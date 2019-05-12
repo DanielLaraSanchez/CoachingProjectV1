@@ -5,7 +5,7 @@
 //IEnumerable, List, Array? why can i not use linq to order by with list. what is the difference between all of them?
 //how to do it so that only a particular class can change the properties of another class and how to do it so only one specific class can call another class constructor
 //when you compare "==" two objects that are meant to be the same, what exactly makes it the same? is there like an internal form of ID or something.
-//what is the
+//what is the name for the flow of how and when the methods are being called.?
 namespace Domain
 {
     public class Ranking
@@ -21,12 +21,16 @@ namespace Domain
                 applyActionOnPlayersAfterGame(game);
             }
 
-            scores.Sort((a, b) => b.Points.CompareTo(a.Points));
-
+            GetRanking(scores);
             return scores;
         }
 
-        
+        public List<Score> GetRanking(List<Score> scores)
+        {
+             scores.Sort((a, b) => b.Points.CompareTo(a.Points));
+            return scores;
+        }
+
 
 
         public void applyActionOnPlayersAfterGame(Game game)
