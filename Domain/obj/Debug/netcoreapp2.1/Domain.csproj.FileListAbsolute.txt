@@ -6,3 +6,4 @@
 /Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/Domain/obj/Debug/netcoreapp2.1/Domain.AssemblyInfo.cs
 /Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/Domain/obj/Debug/netcoreapp2.1/Domain.dll
 /Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/Domain/obj/Debug/netcoreapp2.1/Domain.pdb
+/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/Domain/obj/Debug/netcoreapp2.1/Domain.csprojAssemblyReference.cache

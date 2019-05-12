@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{2F571F5B-45D8-415F-A20E-4091A2273866}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/Ranking.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/EmailSender.cs">
     <Files>
-      <File FileName="DomainTest/RankingTest.cs" Line="43" Column="50" />
-      <File FileName="DomainTest/GameTest.cs" Line="19" Column="36" />
-      <File FileName="DomainTest/ScoreTest.cs" Line="1" Column="1" />
-      <File FileName="Domain/Ranking.cs" Line="12" Column="1" />
-      <File FileName="DomainTest/PlayerTest.cs" Line="73" Column="1" />
-      <File FileName="Domain/Game.cs" Line="19" Column="31" />
-      <File FileName="Domain/Player.cs" Line="39" Column="14" />
-      <File FileName="Domain/Score.cs" Line="6" Column="40" />
+      <File FileName="DomainTest/RankingTest.cs" Line="137" Column="46" />
+      <File FileName="Domain/Game.cs" Line="1" Column="1" />
+      <File FileName="DomainTest/EmailSenderTest.cs" Line="29" Column="2" />
+      <File FileName="DomainTest/GameTest.cs" Line="1" Column="1" />
+      <File FileName="DomainTest/PlayerTest.cs" Line="1" Column="1" />
+      <File FileName="Domain/Player.cs" Line="1" Column="1" />
+      <File FileName="Domain/Ranking.cs" Line="1" Column="1" />
+      <File FileName="Domain/Score.cs" Line="1" Column="1" />
+      <File FileName="Domain/EmailSender.cs" Line="9" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,16 +17,10 @@
           <Node name="CoachingProjectV1" expanded="True">
             <Node name="Domain" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Ranking.cs" selected="True" />
+              <Node name="EmailSender.cs" selected="True" />
             </Node>
             <Node name="DomainTest" expanded="True" />
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>allPlayersNames</Value>
-          <Value>players</Value>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -33,12 +28,9 @@
           <Node name="CoachingProjectV1" expanded="True">
             <Node name="DomainTest" expanded="True">
               <Node name="DomainTest" expanded="True">
-                <Node name="GameTest" expanded="True" />
-                <Node name="PlayerTest" expanded="True" />
                 <Node name="RankingsTest" expanded="True">
-                  <Node name="CanCreateNewRanking" selected="True" />
+                  <Node name="OnlyPlayerThatDidntSetResultsCanConfirmGame" selected="True" />
                 </Node>
-                <Node name="ScoreTest" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -49,7 +41,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/RankingTest.cs" relfile="DomainTest/RankingTest.cs" line="198" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.DomainTest PreferredExecutionTarget="MonoDevelop.Default" />

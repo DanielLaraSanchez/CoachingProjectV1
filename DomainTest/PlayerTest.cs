@@ -20,7 +20,7 @@ namespace DomainTest
             var player1 = new Player("Nira");
             var player2 = new Player("Daniel");
 
-            var game1 = new Game(player1, player2);
+            var game1 = player2.CreateGame(player1, player2);
             game1.Looser = player1;
             game1.Winner = player2;
 
@@ -29,6 +29,24 @@ namespace DomainTest
             game1.IsConfirmed.ShouldBe(true);
 
             }
+
+        [Test]
+        [Category("Unit")]
+        public void CreatorOfGameCantConfirmGame()
+        {
+
+            var player1 = new Player("Nira");
+            var player2 = new Player("Daniel");
+
+            var game1 = player1.CreateGame(player1, player2);
+            game1.Looser = player1;
+            game1.Winner = player2;
+
+            player1.ConfirmGame(game1);
+
+            game1.IsConfirmed.ShouldBe(false);
+
+        }
 
         [Test]
         [Category("Unit")]

@@ -24,6 +24,31 @@ namespace DomainTest
 
         [Test]
         [Category("Unit")]
+        public void CalculateScores_WinningPlayerScoresOnePoint()
+        {
+            var player1 = new Player("Daniel");
+            var player2 = new Player("James");
+
+            player1.EmailAdress = "daniellaraedinburgh@hotmail.com";
+            player2.EmailAdress = "daniellaraedinburgh@hotmail.com";
+
+            var game1 = player2.CreateGame(player1, player2);
+
+            player1.SetGameResults(game1, player1);
+            player1.ConfirmGame(game1);
+
+            var games = new List<Game>() {
+                    game1,
+            };
+            var ranking = new Ranking();
+            var scores = ranking.CalculateScores(games);
+            var winnerPoints = scores.Max(x => x.Points);
+            winnerPoints.ShouldBe(1);
+
+        }
+
+        [Test]
+        [Category("Unit")]
         public void CalculateScores_RankingsAreOrderedByDescending()
         {
             var player1 = new Player("Daniel");
@@ -92,12 +117,15 @@ namespace DomainTest
 
         [Test]
         [Category("Unit")]
-        public void CalculateScores_WinningPlayerScoresOnePoint()
+        public void OnlyPlayerThatDidntSetResultsCanConfirmGame()
         {
             var player1 = new Player("Daniel");
             var player2 = new Player("James");
-    
-            var game1 = new Game(player1, player2);
+
+            player1.EmailAdress = "daniellaraedinburgh@hotmail.com";
+            player2.EmailAdress = "daniellaraedinburgh@hotmail.com";
+
+            var game1 = player2.CreateGame(player1, player2);
 
             player1.SetGameResults(game1, player1);
             player1.ConfirmGame(game1);
@@ -105,10 +133,8 @@ namespace DomainTest
             var games = new List<Game>() {
                     game1,
             };
-            var ranking = new Ranking();
-            var scores = ranking.CalculateScores(games);
-            var winnerPoints = scores.Max(x => x.Points);
-            winnerPoints.ShouldBe(1);
+          
+            game1.IsConfirmed.ShouldBe(false);
 
         }
 
@@ -163,7 +189,11 @@ namespace DomainTest
             var player1 = new Player("Daniel");
             var player2 = new Player("James");
 
-            var game1 = new Game(player1, player2);
+            player1.EmailAdress = "daniellaraedinburgh@hotmail.com";
+            player2.EmailAdress = "daniellaraedinburgh@hotmail.com";
+
+
+            var game1 = player2.CreateGame(player1, player2);
 
             player1.SetGameResults(game1, player1);
             player1.ConfirmGame(game1);

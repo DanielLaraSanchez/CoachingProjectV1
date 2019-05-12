@@ -4,8 +4,8 @@
 //how can i make a method be able to return 2 different things. if there is an IF statement?
 //IEnumerable, List, Array? why can i not use linq to order by with list. what is the difference between all of them?
 //how to do it so that only a particular class can change the properties of another class and how to do it so only one specific class can call another class constructor
-
-
+//when you compare "==" two objects that are meant to be the same, what exactly makes it the same? is there like an internal form of ID or something.
+//what is the
 namespace Domain
 {
     public class Ranking
