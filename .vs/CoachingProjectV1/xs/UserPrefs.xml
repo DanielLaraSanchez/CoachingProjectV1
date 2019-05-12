@@ -1,16 +1,18 @@
-﻿<Properties StartupConfiguration="{2F571F5B-45D8-415F-A20E-4091A2273866}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Domain/Interfaces/IEmailSender.cs">
+﻿<Properties StartupConfiguration="{739F9222-9055-4F15-A308-7BBC8C431758}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UI/ClientApp/src/app/fetch-data/fetch-data.component.ts">
     <Files>
-      <File FileName="DomainTest/RankingTest.cs" Line="137" Column="46" />
-      <File FileName="Domain/Game.cs" Line="1" Column="1" />
+      <File FileName="DomainTest/RankingTest.cs" Line="168" Column="1" />
+      <File FileName="Domain/Game.cs" Line="12" Column="1" />
       <File FileName="DomainTest/EmailSenderTest.cs" Line="29" Column="2" />
       <File FileName="DomainTest/GameTest.cs" Line="1" Column="1" />
-      <File FileName="DomainTest/PlayerTest.cs" Line="1" Column="1" />
-      <File FileName="Domain/Player.cs" Line="42" Column="246" />
-      <File FileName="Domain/Ranking.cs" Line="1" Column="1" />
+      <File FileName="DomainTest/PlayerTest.cs" Line="52" Column="10" />
+      <File FileName="Domain/Player.cs" Line="39" Column="14" />
+      <File FileName="Domain/Ranking.cs" Line="12" Column="36" />
       <File FileName="Domain/Score.cs" Line="1" Column="1" />
-      <File FileName="Domain/EmailSender.cs" Line="11" Column="1" />
-      <File FileName="Domain/Interfaces/IEmailSender.cs" Line="6" Column="1" />
+      <File FileName="Domain/EmailSender.cs" Line="28" Column="190" />
+      <File FileName="Domain/Interfaces/IEmailSender.cs" Line="9" Column="1" />
+      <File FileName="Domain/Interfaces/IRanking.cs" Line="4" Column="27" />
+      <File FileName="UI/ClientApp/src/app/fetch-data/fetch-data.component.ts" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,34 +20,35 @@
           <Node name="CoachingProjectV1" expanded="True">
             <Node name="Domain" expanded="True">
               <Node name="Dependencies" expanded="True" />
-              <Node name="Interfaces" expanded="True">
-                <Node name="IEmailSender.cs" selected="True" />
-              </Node>
+              <Node name="Interfaces" expanded="True" />
             </Node>
-            <Node name="DomainTest" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="CoachingProjectV1" expanded="True">
-            <Node name="DomainTest" expanded="True">
-              <Node name="DomainTest" expanded="True">
-                <Node name="RankingsTest" expanded="True">
-                  <Node name="OnlyPlayerThatDidntSetResultsCanConfirmGame" selected="True" />
+            <Node name="UI" expanded="True">
+              <Node name="ClientApp" expanded="True">
+                <Node name="src" expanded="True">
+                  <Node name="app" expanded="True">
+                    <Node name="fetch-data" expanded="True">
+                      <Node name="fetch-data.component.ts" selected="True" />
+                    </Node>
+                  </Node>
                 </Node>
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="CoachingProjectV1" expanded="True" />
+        </State>
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.UI PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/RankingTest.cs" relfile="DomainTest/RankingTest.cs" line="198" column="1" />
+      <Breakpoint file="/Users/daniellarasanchez/PersonalProjects/CoachingProjectV1/DomainTest/RankingTest.cs" relfile="DomainTest/RankingTest.cs" line="193" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

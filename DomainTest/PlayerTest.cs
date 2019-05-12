@@ -21,7 +21,6 @@ namespace DomainTest
             var player2 = new Player("Daniel");
 
             var game1 = player2.CreateGame(player1, player2);
-            game1.Looser = player1;
             game1.Winner = player2;
 
             player1.ConfirmGame(game1);
@@ -39,7 +38,6 @@ namespace DomainTest
             var player2 = new Player("Daniel");
 
             var game1 = player1.CreateGame(player1, player2);
-            game1.Looser = player1;
             game1.Winner = player2;
 
             player1.ConfirmGame(game1);
@@ -58,7 +56,6 @@ namespace DomainTest
             var player3 = new Player("James");
 
             var game1 = new Game(player1, player2);
-            game1.Looser = player1;
             game1.Winner = player2;
             player3.ConfirmGame(game1);
 

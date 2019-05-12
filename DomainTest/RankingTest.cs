@@ -56,7 +56,6 @@ namespace DomainTest
             var game1 = new Game(player1, player2);
 
             game1.Winner = player1;
-            game1.Looser = player2;
        
             var games = new List<Game>() {
                     game1,
@@ -95,9 +94,7 @@ namespace DomainTest
             var game2 = new Game(player3, player4);
 
             game1.Winner = player1;
-            game1.Looser = player2;
             game2.Winner = player3;
-            game2.Looser = player4;
 
             var games = new List<Game>() {
                     game1,
@@ -148,7 +145,6 @@ namespace DomainTest
             var game1 = new Game(player1, player2);
 
             game1.Winner = player1;
-            game1.Looser = player2;
 
             var games = new List<Game>() {
                     game1,
@@ -169,7 +165,6 @@ namespace DomainTest
             var game1 = new Game(player1, player2);
 
             game1.Winner = player1;
-            game1.Looser = player2;
 
             var games = new List<Game>() {
                     game1,

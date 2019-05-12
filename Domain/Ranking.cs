@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Domain.Interfaces;
 
 
 //how can i make a method be able to return 2 different things. if there is an IF statement?
@@ -8,7 +9,7 @@
 //what is the name for the flow of how and when the methods are being called.?
 namespace Domain
 {
-    public class Ranking
+    public class Ranking : IRanking
     {
         public List<Score> scores = new List<Score>();
 
