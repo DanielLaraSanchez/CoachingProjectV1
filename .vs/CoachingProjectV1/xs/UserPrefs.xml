@@ -1,18 +1,15 @@
-﻿<Properties StartupConfiguration="{739F9222-9055-4F15-A308-7BBC8C431758}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="UI/ClientApp/src/app/fetch-data/fetch-data.component.ts">
+﻿<Properties StartupConfiguration="{2F571F5B-45D8-415F-A20E-4091A2273866}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DomainTest/RankingTest.cs">
     <Files>
-      <File FileName="DomainTest/RankingTest.cs" Line="168" Column="1" />
-      <File FileName="Domain/Game.cs" Line="12" Column="1" />
-      <File FileName="DomainTest/EmailSenderTest.cs" Line="29" Column="2" />
-      <File FileName="DomainTest/GameTest.cs" Line="1" Column="1" />
-      <File FileName="DomainTest/PlayerTest.cs" Line="52" Column="10" />
-      <File FileName="Domain/Player.cs" Line="39" Column="14" />
-      <File FileName="Domain/Ranking.cs" Line="12" Column="36" />
-      <File FileName="Domain/Score.cs" Line="1" Column="1" />
-      <File FileName="Domain/EmailSender.cs" Line="28" Column="190" />
       <File FileName="Domain/Interfaces/IEmailSender.cs" Line="9" Column="1" />
-      <File FileName="Domain/Interfaces/IRanking.cs" Line="4" Column="27" />
-      <File FileName="UI/ClientApp/src/app/fetch-data/fetch-data.component.ts" Line="1" Column="1" />
+      <File FileName="Domain/Interfaces/IRanking.cs" Line="7" Column="6" />
+      <File FileName="Domain/EmailSender.cs" Line="21" Column="15" />
+      <File FileName="Domain/Game.cs" Line="26" Column="38" />
+      <File FileName="Domain/Ranking.cs" Line="29" Column="1" />
+      <File FileName="Domain/Score.cs" Line="1" Column="1" />
+      <File FileName="DomainTest/ScoreTest.cs" Line="17" Column="30" />
+      <File FileName="Domain/Player.cs" Line="41" Column="35" />
+      <File FileName="DomainTest/RankingTest.cs" Line="174" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,28 +19,19 @@
               <Node name="Dependencies" expanded="True" />
               <Node name="Interfaces" expanded="True" />
             </Node>
-            <Node name="UI" expanded="True">
-              <Node name="ClientApp" expanded="True">
-                <Node name="src" expanded="True">
-                  <Node name="app" expanded="True">
-                    <Node name="fetch-data" expanded="True">
-                      <Node name="fetch-data.component.ts" selected="True" />
-                    </Node>
-                  </Node>
-                </Node>
-              </Node>
+            <Node name="DomainTest" expanded="True">
+              <Node name="RankingTest.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="CoachingProjectV1" expanded="True" />
+          <Node name="CoachingProjectV1" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.UI PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

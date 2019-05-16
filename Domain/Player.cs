@@ -38,7 +38,7 @@ namespace Domain
             if (game.Player1.Name == this.Name || game.Player2.Name == this.Name)
             {
                 game.Winner = player;
-                game.EmailSender.SendEmail(playerToBeSentConfirmationEmail);//players should have like a "pending confirmation inbox" which will be automatically loaded first thing when logging in. in case there is no items pending first thing loaded will be the creation of game form. 
+                game.EmailSender().SendEmail(playerToBeSentConfirmationEmail);//players should have like a "pending confirmation inbox" which will be automatically loaded first thing when logging in. in case there is no items pending first thing loaded will be the creation of game form. 
             }
            
         }

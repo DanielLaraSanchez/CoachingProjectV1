@@ -150,7 +150,7 @@ namespace DomainTest
                     game1,
             };
             var ranking = new Ranking();
-            var allPlayerNames = ranking.getAllPlayerNames(games);
+            var allPlayerNames = ranking.GetAllPlayerNames(games);
             allPlayerNames.Count().ShouldBe(2);
             allPlayerNames.ShouldContain("Daniel");
         }
@@ -171,7 +171,7 @@ namespace DomainTest
             };
             var ranking = new Ranking();
 
-            ranking.insertAllPlayerNamesInScoresArray(games);
+            ranking.InsertAllPlayerNamesInScoresArray(games);
             ranking.scores.Count().ShouldBe(2);
           
         }
@@ -195,7 +195,7 @@ namespace DomainTest
             var score1 = new Score(player1.Name);
             var ranking = new Ranking();
             
-            ranking.actionOnWinnerAfterGame(game1, score1);
+            ranking.ActionOnWinnerAfterGame(game1, score1);
 
             score1.Player.ShouldBe("Daniel");
             score1.Points.ShouldBe(1);

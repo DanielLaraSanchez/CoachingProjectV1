@@ -2,11 +2,11 @@
 using Domain.Interfaces;
 
 
-//how can i make a method be able to return 2 different things. if there is an IF statement?
 //IEnumerable, List, Array? why can i not use linq to order by with list. what is the difference between all of them?
-//how to do it so that only a particular class can change the properties of another class and how to do it so only one specific class can call another class constructor
-//when you compare "==" two objects that are meant to be the same, what exactly makes it the same? is there like an internal form of ID or something.
-//what is the name for the flow of how and when the methods are being called.?
+//what is the weird using in emailsender doing?
+
+
+
 namespace Domain
 {
     public class Ranking : IRanking
@@ -15,35 +15,27 @@ namespace Domain
 
         public IEnumerable<Score> CalculateScores(List<Game> games)
         {
-            insertAllPlayerNamesInScoresArray(games);
+            InsertAllPlayerNamesInScoresArray(games);
 
             foreach (Game game in games)
             {
-                applyActionOnPlayersAfterGame(game);
+                ApplyActionOnPlayersAfterGame(game);
             }
 
-            GetRanking(scores);
+            scores.Sort((a, b) => b.Points.CompareTo(a.Points));
             return scores;
         }
 
-        public List<Score> GetRanking(List<Score> scores)
-        {
-             scores.Sort((a, b) => b.Points.CompareTo(a.Points));
-            return scores;
-        }
-
-
-
-        public void applyActionOnPlayersAfterGame(Game game)
+        public void ApplyActionOnPlayersAfterGame(Game game)
         {
             foreach(Score score in scores)
             {
-                actionOnWinnerAfterGame(game, score);
+                ActionOnWinnerAfterGame(game, score);
             }
 
         }
 
-        public void actionOnWinnerAfterGame(Game game, Score score)
+        public void ActionOnWinnerAfterGame(Game game, Score score)
         {
             if(score.Player == game.Winner.Name && game.IsConfirmed == true)
             {
@@ -53,9 +45,9 @@ namespace Domain
 
    
 
-        public void insertAllPlayerNamesInScoresArray(List<Game> games)
+        public void InsertAllPlayerNamesInScoresArray(List<Game> games)
         {
-            var arrayNames = getAllPlayerNames(games);
+            var arrayNames = GetAllPlayerNames(games);
 
             foreach(string name in arrayNames)
             {
@@ -67,7 +59,7 @@ namespace Domain
 
 
 
-        public IEnumerable<string> getAllPlayerNames(List<Game> games)
+       public IEnumerable<string> GetAllPlayerNames(List<Game> games)
         {
             var arrayNames = new List<string>();
             foreach (Game game in games)

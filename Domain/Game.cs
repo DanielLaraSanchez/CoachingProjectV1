@@ -12,7 +12,6 @@ namespace Domain
         public Boolean IsConfirmed { get; internal set; }
         public DateTime TimeStamp { get; }
         public Player Creator { get; set; }
-        public IEmailSender EmailSender { get; }
 
 
         public Game(Player player1, Player player2)
@@ -20,10 +19,12 @@ namespace Domain
             Player1 = player1;
             Player2 = player2;
             TimeStamp = DateTime.Now;
-            EmailSender = new EmailSender();
         }
 
-
+        public EmailSender EmailSender()
+        {
+            return new EmailSender();
+        }
     }
 
    
