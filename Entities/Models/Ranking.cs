@@ -10,6 +10,8 @@ namespace Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public long RankingId { get; set; }
+
         public List<Score> scores = new List<Score>();
 
     }

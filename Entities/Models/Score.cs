@@ -11,6 +11,7 @@ namespace Entities
     
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public long ScoreId { get; set; }
         public string Player { get; set; }
         public int Points { get; set; }
     }
