@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace API
+namespace DataLayer.Entities
 {
-    class Player
+    public  class Player
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long PlayerId { get; set; }
+        [MaxLength(100)]
+        [Required]
         public string Name { get; set; }
+        [MaxLength(100)]
+        [Required]
         public string EmailAdress { get; set; }
     }
 }

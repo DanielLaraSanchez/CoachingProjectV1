@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace API
+namespace DataLayer.Entities.Repository
 {
-    class EntitiesDbContext
+    interface IDataRepository
     {
     }
 }
