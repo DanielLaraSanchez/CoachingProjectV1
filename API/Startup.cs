@@ -26,7 +26,8 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PoolChampionContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:PoolChampionDB"]));
-            services.AddScoped<IDataRepository<Game>, GameManager>();
+            services.AddScoped<IDataRepository<Game>, GameManager>();//IS THIS CREATING THE DEPENDENCY CONTAINER?
+            services.AddScoped<IDataRepository<Player>, PlayerManager>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

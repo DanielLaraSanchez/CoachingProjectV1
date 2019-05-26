@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DataLayer;
 using DataLayer.Entities;
+using DataLayer.Entities.Repository;
+
+//why are things not asynchronous?
 
 namespace API.Controllers
 {
@@ -14,26 +17,27 @@ namespace API.Controllers
     [ApiController]
     public class PlayersController : ControllerBase
     {
-        private readonly PoolChampionContext _context;
 
-        public PlayersController(PoolChampionContext context)
+        public IDataRepository<Player> _dataRepository { get; }
+
+        public PlayersController(IDataRepository<Player> dataRepository)
         {
-            _context = context;
+            _dataRepository = dataRepository;
         }
 
         // GET: api/Players
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Player>>> GetPlayers()
+        public ActionResult<IEnumerable<Player>> GetPlayers()
         {
-            return await _context.Players.ToListAsync();
+            IEnumerable<Player> players = _dataRepository.GetAll();
+            return Ok(players);
         }
 
         // GET: api/Players/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Player>> GetPlayer(long id)
+        public ActionResult<Player> GetPlayer(long id)
         {
-            var player = await _context.Players.FindAsync(id);
-
+            Player player = _dataRepository.Get(id);
             if (player == null)
             {
                 return NotFound();
@@ -44,63 +48,53 @@ namespace API.Controllers
 
         // PUT: api/Players/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPlayer(long id, Player player)
+        public IActionResult PutPlayer(long id, Player player)
         {
-            if (id != player.PlayerId)
+            if (player == null)
             {
-                return BadRequest();
+                return BadRequest("Player is null.");
             }
 
-            _context.Entry(player).State = EntityState.Modified;
-
-            try
+            Player playerToUpdate = _dataRepository.Get(id);
+            if (playerToUpdate == null)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PlayerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound("The Employee record couldn't be found.");
             }
 
+            _dataRepository.Update(playerToUpdate, player);
             return NoContent();
         }
 
         // POST: api/Players
         [HttpPost]
-        public async Task<ActionResult<Player>> PostPlayer(Player player)
+        public ActionResult<Player> PostPlayer(Player player)
         {
-            _context.Players.Add(player);
-            await _context.SaveChangesAsync();
+            if (player == null)
+            {
+                return BadRequest("Employee is null.");
+            }
 
-            return CreatedAtAction("GetPlayer", new { id = player.PlayerId }, player);
+            _dataRepository.Add(player);
+            return CreatedAtRoute(
+                  "Get",
+                  new { Id = player.PlayerId },
+                  player);
         }
 
         // DELETE: api/Players/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Player>> DeletePlayer(long id)
+        public ActionResult<Player> DeletePlayer(long id)
         {
-            var player = await _context.Players.FindAsync(id);
+            Player player = _dataRepository.Get(id);
             if (player == null)
             {
-                return NotFound();
+                return NotFound("The Employee record couldn't be found.");
             }
 
-            _context.Players.Remove(player);
-            await _context.SaveChangesAsync();
-
-            return player;
+            _dataRepository.Delete(player);
+            return NoContent();
         }
 
-        private bool PlayerExists(long id)
-        {
-            return _context.Players.Any(e => e.PlayerId == id);
-        }
+       
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataLayer.Entities.DataManager
 {
-    class PlayerManager : IDataRepository<Player>
+    public class PlayerManager : IDataRepository<Player>
     {
         readonly PoolChampionContext _poolChampionContext;
 
