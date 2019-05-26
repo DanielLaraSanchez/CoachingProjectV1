@@ -1,8 +1,36 @@
 <div class="container-fluid main-container-wrapper">
   <div class="row main-row">
-    <div class="col-lg-7 bg-col"></div>
-    <div class="col-lg-5 login-col"></div>
+    <div class="col-lg-6 bg-col"></div>
+    <div class="col-lg-6 login-col">
+      <div class="container-fluid login-container">
+        <div class="row justify-content-center align-items-center login-row">
+          <div class="col-lg-5 text-center">
 
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" [formControl]="emailFormControl">
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                  <input matInput type="password" placeholder="Password">
+                </mat-form-field>
+                <br />
+                    <button mat-stroked-button color="accent">Accent</button>
+
+
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 

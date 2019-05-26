@@ -6,6 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { MainRankingComponent } from './Views/main-ranking/main-ranking.component';
 import { LoginComponent } from './Views/login/login.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +22,13 @@ import { LoginComponent } from './Views/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    //Material
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
