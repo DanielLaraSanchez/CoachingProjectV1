@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { SignupComponent } from './Views/signup/signup.component';
 
 
 
@@ -18,7 +19,8 @@ import {MatButtonModule} from '@angular/material/button';
   declarations: [
     AppComponent,
     MainRankingComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
