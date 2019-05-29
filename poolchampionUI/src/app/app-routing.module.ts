@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { MainRankingComponent} from './Views/main-ranking/main-ranking.component';
-import { LoginComponent } from './Views/login/login.component';
-import { SignupComponent } from './Views/signup/signup.component';
+import { LoginPageComponent } from './Views/login-page/login-page.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'mainranking', component: MainRankingComponent },
-  { path: 'signup', component: SignupComponent, data: { animation: 'isRight' }}
+  { path: '', component: LoginPageComponent },
+  { path: 'mainranking', component: MainRankingComponent }
+  // { path: 'signup', component: SignupComponent, data: { animation: 'isRight' }}
 ];
 
 @NgModule({
