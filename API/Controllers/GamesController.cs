@@ -7,100 +7,32 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DataLayer;
 using DataLayer.Entities;
+using Domain.Interfaces;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]//is this not meant to be the route? should it not be "api/games"?
+    [Route("api/[controller]")]
     [ApiController]
     public class GamesController : ControllerBase
     {
-        private readonly PoolChampionContext _context;
+        private readonly IPoolChampionService _poolChampion;
 
-        public GamesController(PoolChampionContext context)
+        public GamesController(IPoolChampionService poolChanpion)
         {
-            _context = context;
+            _poolChampion = poolChanpion;
         }
 
-        // GET: api/Games
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Game>>> GetGames()
-        {
-            return await _context.Games.ToListAsync();
-        }
-
-        // GET: api/Games/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Game>> GetGame(long id)
-        {
-            var game = await _context.Games.FindAsync(id);
-
-            if (game == null)
-            {
-                return NotFound();
-            }
-
-            return game;
-        }
-
-        // PUT: api/Games/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutGame(long id, Game game)
-        {
-            if (id != game.GameId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(game).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!GameExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Games
         [HttpPost]
-        public async Task<ActionResult<Game>> PostGame(Game game)
+        public async Task<ActionResult<Game>> CreateGame()
         {
-            _context.Games.Add(game);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetGame", new { id = game.GameId }, game);
+            await _poolChampion.CreateGame();
+            return new OkResult();
         }
 
-        // DELETE: api/Games/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Game>> DeleteGame(long id)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ConfirmGame(long id)
         {
-            var game = await _context.Games.FindAsync(id);
-            if (game == null)
-            {
-                return NotFound();
-            }
-
-            _context.Games.Remove(game);
-            await _context.SaveChangesAsync();
-
-            return game;
-        }
-
-        private bool GameExists(long id)
-        {
-            return _context.Games.Any(e => e.GameId == id);
+            return new OkObjectResult(await _poolChampion.Confirm(id));
         }
     }
 }
