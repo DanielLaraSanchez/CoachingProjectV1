@@ -6,8 +6,10 @@ namespace Domain
 {
     public class Player
     {
+        public long Id { get; set; }
+        
         public string Name { get; set; }
-        public string EmailAdress { get; set; }
+        public string EmailAddress { get; set; }
 
        
 
@@ -19,7 +21,7 @@ namespace Domain
         public Player(string name, string emailAddress)
         {
             Name = name;
-            EmailAdress = emailAddress;
+            EmailAddress = emailAddress;
         }
 
         public void ConfirmGame(Game game)

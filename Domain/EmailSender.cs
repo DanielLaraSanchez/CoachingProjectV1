@@ -16,11 +16,11 @@ namespace Domain
             {
                 var validator = new EmailAddressAttribute();
 
-                if (validator.IsValid(player.EmailAdress))
+                if (validator.IsValid(player.EmailAddress))
                 {
                     var message = new MimeMessage();
                     message.From.Add(new MailboxAddress("PoolChampion App", "CwPoolChampion@gmail.com"));
-                    message.To.Add(new MailboxAddress($"{player.Name}", $"{player.EmailAdress}"));
+                    message.To.Add(new MailboxAddress($"{player.Name}", $"{player.EmailAddress}"));
                     message.Subject = "You have a pending PoolChampion game to confirm";
                     message.Body = new TextPart("plain")
                     {

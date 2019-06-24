@@ -21,7 +21,7 @@ namespace DataLayer
                  players = await context.Players.ToListAsync();
             }
 
-            return players;
+            return players.AsEnumerable();
         }
 
         public async Task<Player> AddPlayer(string name, string email)
@@ -29,11 +29,11 @@ namespace DataLayer
             var options = new DbContextOptionsBuilder();
             using (var context = new PoolChampionContext(options.Options))
             {
-                if (!context.Players.Any(x => x.EmailAdress == email))
+                if (!context.Players.Any(x => x.EmailAddress == email))
                 {
                     var player = new Entities.Player
                     {
-                        EmailAdress = email,
+                        EmailAddress = email,
                         Name = name
                     };
 

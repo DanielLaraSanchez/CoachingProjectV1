@@ -19,8 +19,8 @@ namespace DomainTest
         public void CanSendEmail()
         {
             var player1 = new Player("Daniel");
-            player1.EmailAdress = "daniellaraedinburgh@gmail.com";
-            var emailAddress = player1.EmailAdress;
+            player1.EmailAddress = "daniellaraedinburgh@gmail.com";
+            var emailAddress = player1.EmailAddress;
             var EmailSender = new EmailSender();
             EmailSender.SendEmail(player1);
             emailAddress.ShouldNotBe(null);

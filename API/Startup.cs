@@ -1,13 +1,13 @@
 ﻿using DataLayer;
 using DataLayer.Entities;
+using Domain;
+using Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using DataLayer.Entities.DataManager;
-using DataLayer.Entities.Repository;
 
 namespace API
 {
@@ -26,12 +26,11 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PoolChampionContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:PoolChampionDB"]));
-<<<<<<< HEAD
-            services.AddScoped<IDataRepository<Game>, GameManager>();
-=======
-            services.AddScoped<IDataRepository<Game>, GameManager>();//IS THIS CREATING THE DEPENDENCY CONTAINER?
-            services.AddScoped<IDataRepository<Player>, PlayerManager>();
->>>>>>> 9ede5b53204b9790adbddcb851128e74f0a8cb95
+            //services.AddScoped<IDataRepository<Game>, DataRepository>();//IS THIS CREATING THE DEPENDENCY CONTAINER?
+            services.AddScoped<IDataRepository, DataRepository>();
+            services.AddScoped<IPoolChampionService, PoolChampionService>();
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

@@ -5,7 +5,7 @@ namespace Domain.Interfaces
 {
     public interface IPoolChampionService
     {
-        Task<Player> GetAllPlayers();
+        Task<IEnumerable<Player>> GetAllPlayers();
         Task CreateGame();
 
         Task<Game> Confirm(long id);

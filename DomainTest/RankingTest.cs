@@ -11,6 +11,24 @@ namespace DomainTest
     [TestFixture]
     public class RankingsTest
     {
+        private List<Player> players;
+        private List<Game> games;
+
+        public RankingsTest()
+        {
+            players = new List<Player>();
+            games = new List<Game>();
+            
+            players.Add(new Player("Daniel"));
+            players.Add(new Player("James"));
+
+            games.Add(new Game(players[0], players[1]));
+        }
+
+
+
+
+
         [Test]
         [Category("Integration")]
         public void RankingsAreVisibleToAllPlayer()
@@ -29,8 +47,8 @@ namespace DomainTest
             var player1 = new Player("Daniel");
             var player2 = new Player("James");
 
-            player1.EmailAdress = "daniellaraedinburgh@hotmail.com";
-            player2.EmailAdress = "daniellaraedinburgh@hotmail.com";
+            player1.EmailAddress = "daniellaraedinburgh@hotmail.com";
+            player2.EmailAddress = "daniellaraedinburgh@hotmail.com";
 
             var game1 = player2.CreateGame(player1, player2);
 
@@ -62,7 +80,7 @@ namespace DomainTest
             };
             var rankingObject = new Ranking();
             var ranking = rankingObject.CalculateScores(games);
-            var firstPlayerInRanking = ranking.First().Player;
+            var firstPlayerInRanking = ranking.First().PlayerName;
 
             firstPlayerInRanking.ShouldBe("Daniel");
         }
@@ -105,7 +123,7 @@ namespace DomainTest
             var allPlayersNames = games.Select(game => game.Player1.Name).Union(games.Select(game => game.Player2.Name)).OrderBy(playerName => playerName);
             var ranking = new Ranking();
 
-            var players = ranking.CalculateScores(games).Select(x => x.Player).OrderBy(x => x).ToList();
+            var players = ranking.CalculateScores(games).Select(x => x.PlayerName).OrderBy(x => x).ToList();
 
             players.ShouldBeUnique();
             players.SequenceEqual(allPlayersNames).ShouldBeTrue();
@@ -119,8 +137,8 @@ namespace DomainTest
             var player1 = new Player("Daniel");
             var player2 = new Player("James");
 
-            player1.EmailAdress = "daniellaraedinburgh@hotmail.com";
-            player2.EmailAdress = "daniellaraedinburgh@hotmail.com";
+            player1.EmailAddress = "daniellaraedinburgh@hotmail.com";
+            player2.EmailAddress = "daniellaraedinburgh@hotmail.com";
 
             var game1 = player2.CreateGame(player1, player2);
 
@@ -172,7 +190,7 @@ namespace DomainTest
             var ranking = new Ranking();
 
             ranking.InsertAllPlayerNamesInScoresArray(games);
-            ranking.scores.Count().ShouldBe(2);
+            ranking.GetScores().ShouldBe(2);
           
         }
 
@@ -184,8 +202,8 @@ namespace DomainTest
             var player1 = new Player("Daniel");
             var player2 = new Player("James");
 
-            player1.EmailAdress = "daniellaraedinburgh@hotmail.com";
-            player2.EmailAdress = "daniellaraedinburgh@hotmail.com";
+            player1.EmailAddress = "daniellaraedinburgh@hotmail.com";
+            player2.EmailAddress = "daniellaraedinburgh@hotmail.com";
 
 
             var game1 = player2.CreateGame(player1, player2);
@@ -197,7 +215,7 @@ namespace DomainTest
             
             ranking.ActionOnWinnerAfterGame(game1, score1);
 
-            score1.Player.ShouldBe("Daniel");
+            score1.PlayerName.ShouldBe("Daniel");
             score1.Points.ShouldBe(1);
         }
 

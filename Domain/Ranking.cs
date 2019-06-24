@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Domain.Interfaces;
 
 
@@ -11,33 +12,53 @@ namespace Domain
 {
     public class Ranking : IRanking
     {
-        public List<Score> scores = new List<Score>();
+        private readonly List<Score> _scores;
+
+        public Ranking()
+        {
+           _scores = new List<Score>();
+        }
 
         public IEnumerable<Score> CalculateScores(List<Game> games)
         {
+            if (games == null)
+            {
+                throw new ArgumentNullException("Please enter a List of games");
+            }
             InsertAllPlayerNamesInScoresArray(games);
-
+            
             foreach (Game game in games)
             {
                 ApplyActionOnPlayersAfterGame(game);
             }
 
-            scores.Sort((a, b) => b.Points.CompareTo(a.Points));
-            return scores;
+            _scores.Sort((a, b) => b.Points.CompareTo(a.Points));
+            return _scores;
         }
 
-        public void ApplyActionOnPlayersAfterGame(Game game)
+        public int GetScores()
         {
-            foreach(Score score in scores)
-            {
-                ActionOnWinnerAfterGame(game, score);
-            }
+            return _scores.Count;
+        }
 
+        private void ApplyActionOnPlayersAfterGame(Game game)
+        {
+            if (game == null)
+            {
+                throw new ArgumentNullException("Please enter a game");
+            }
+            if(_scores.Count > 0)
+            {
+                foreach(Score score in _scores)
+                {
+                    ActionOnWinnerAfterGame(game, score);
+                }
+            }
         }
 
         public void ActionOnWinnerAfterGame(Game game, Score score)
         {
-            if(score.Player == game.Winner.Name && game.IsConfirmed == true)
+            if(score.PlayerName == game.Winner.Name && game.IsConfirmed)
             {
                 score.Points += 1;
             }
@@ -52,8 +73,7 @@ namespace Domain
             foreach(string name in arrayNames)
             {
                 Score score = new Score(name);
-                score.Points = 0;
-                scores.Add(score);
+                _scores.Add(score);
             }
         }
 

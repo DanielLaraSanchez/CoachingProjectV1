@@ -3,12 +3,14 @@ namespace Domain
 {
     public class Score
     {
-        public string Player { get; set; }
+        public string PlayerName { get; set; }
         public int Points { get; set; }
 
-        public Score(string player)
+        public Score(string playerName)
         {
-            Player = player;
+            PlayerName = playerName;
+            Points = 0;
+
         }
     }
 }

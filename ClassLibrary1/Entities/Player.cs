@@ -13,6 +13,6 @@ namespace DataLayer.Entities
         public string Name { get; set; }
         [MaxLength(100)]
         [Required]
-        public string EmailAdress { get; set; }
+        public string EmailAddress { get; set; }
     }
 }
