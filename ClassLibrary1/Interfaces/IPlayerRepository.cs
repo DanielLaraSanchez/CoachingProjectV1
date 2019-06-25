@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public interface IDataRepository
+    public interface IPlayerRepository
     {
         Task<IEnumerable<Entities.Player>> GetAllPlayers();
         Task<Entities.Player> AddPlayer(string name, string email);

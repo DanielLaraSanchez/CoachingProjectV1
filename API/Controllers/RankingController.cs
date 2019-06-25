@@ -14,6 +14,11 @@ namespace API.Controllers
     public class RankingController : Controller
     {
         private readonly IPoolChampionService _poolChampion;
+
+        public RankingController(IPoolChampionService poolChampion)
+        {
+            _poolChampion = poolChampion;
+        }
         
         [HttpGet]
         public async Task<ActionResult> Get()

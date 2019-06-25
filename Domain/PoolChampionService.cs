@@ -10,16 +10,16 @@ namespace Domain
     public class PoolChampionService : IPoolChampionService
     {
 
-        private readonly IDataRepository _repository;
+        private readonly IPlayerRepository _player_repository;
 
-        public PoolChampionService(IDataRepository repository)
+        public PoolChampionService(IPlayerRepository repository)
         {
-            _repository = repository;
+            _player_repository = repository;
         }
 
         public async Task<Player> AddPlayer(string name, string email)
         {
-            await _repository.AddPlayer(name, email);
+            await _player_repository.AddPlayer(name, email);
             return null;
         }
 
@@ -35,10 +35,18 @@ namespace Domain
 
         public async Task<IEnumerable<Player>> GetAllPlayers()
         {
-            var result = await _repository.GetAllPlayers();
+            var result = await _player_repository.GetAllPlayers();
 
             return result.Select(ToDomainPlayer);
 
+        }
+
+ 
+
+        public Task<IEnumerable<Score>> GetRanking()
+        {
+
+            throw new System.NotImplementedException();
         }
 
         public static DataLayer.Entities.Player ToEntityPlayer(Domain.Player player)
@@ -59,10 +67,9 @@ namespace Domain
 
 
         }
-
-        public Task<IEnumerable<Score>> GetRanking()
-        {
-            throw new System.NotImplementedException();
-        }
     }
+
+
+
+
 }

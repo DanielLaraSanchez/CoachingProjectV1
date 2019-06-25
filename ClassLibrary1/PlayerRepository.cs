@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    public class DataRepository : IDataRepository
+    public class PlayerRepository : IPlayerRepository
     {
 
 
