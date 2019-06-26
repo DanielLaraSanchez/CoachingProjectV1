@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using DataLayer.Entities;
 
 namespace DataLayer
 {
-    interface IGameRepository
+   public interface IGameRepository
     {
         Task<IEnumerable<Entities.Game>> GetAllGames();
-        Task<Entities.Game> AddGame();
+        Task<Entities.Game> AddGame(Player player1, Player player2);
 
     }
 }

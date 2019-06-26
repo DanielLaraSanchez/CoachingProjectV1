@@ -17,9 +17,9 @@ namespace API.Controllers
     {
         private readonly IPoolChampionService _poolChampion;
 
-        public PlayersController(IPoolChampionService poolChanpion)
+        public PlayersController(IPoolChampionService poolChampion)
         {
-            _poolChampion = poolChanpion;
+            _poolChampion = poolChampion;
         }
 
         public async Task<ActionResult> GetPlayers()

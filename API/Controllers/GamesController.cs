@@ -23,9 +23,9 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Game>> CreateGame()
+        public async Task<ActionResult<Game>> CreateGame(Domain.Player player1, Domain.Player player2)
         {
-            await _poolChampion.CreateGame();
+            await _poolChampion.CreateGame(player1, player2);
             return new OkResult();
         }
 
