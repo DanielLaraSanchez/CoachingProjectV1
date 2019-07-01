@@ -27,5 +27,28 @@ namespace DataLayer
 
 
         }
+
+        public async Task<IEnumerable<Game>> GetAllGames()
+        {
+            var options = new DbContextOptionsBuilder();
+            using (var context = new PoolChampionContext(options.Options))
+            {
+
+                var games = await context.Games.ToListAsync();
+                return games;
+            }
+        }
+
+        public async Task<DataLayer.Entities.Game> GetGame(long id)
+        {
+            DataLayer.Entities.Game game;
+            var options = new DbContextOptionsBuilder();
+            using (var context = new PoolChampionContext(options.Options)
+            {
+                game =
+            }
+            
+           
+        }
     }
 }

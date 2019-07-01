@@ -24,6 +24,17 @@ namespace DataLayer
             return players.AsEnumerable();
         }
 
+        public async Task<DataLayer.Entities.Player> GetPlayer(long id)
+        {
+            DataLayer.Entities.Player player;
+            var options = new DbContextOptionsBuilder();
+            using (var context = new PoolChampionContext(options.Options))
+            {
+                player = await context.Players.FindAsync(id);
+            }
+            return player;
+        }
+
         public async Task<Player> AddPlayer(string name, string email)
         { 
             var options = new DbContextOptionsBuilder();
@@ -45,6 +56,7 @@ namespace DataLayer
                 return null;
             }
         }
+
 
     
     }

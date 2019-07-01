@@ -25,16 +25,19 @@ namespace Domain
             return null;
         }
 
-        public Task<Game> Confirm(long id)
+        public Task<Game> Confirm(long playerId, long gameId)
         {
-            throw new System.NotImplementedException();
+            var player = _playerRepository.GetPlayer(playerId);
+            var game = _gameRepository.GetGame(gameId);
+            player.
+
+            return null;
         }
 
-        public Task<Game> CreateGame(Player player1, Player player2)
+        public Task<Game> CreateGame(DataLayer.Entities.Player player1, DataLayer.Entities.Player player2)
         {
-            var entitiePlayer1 = ToEntityPlayer(player1);
-            var entitiePlayer2 = ToEntityPlayer(player2);
-             _gameRepository.AddGame(entitiePlayer1, entitiePlayer2);
+             _gameRepository.AddGame(player1, player2);
+
             return null;
         }
 
@@ -48,10 +51,16 @@ namespace Domain
 
  
 
-        public Task<IEnumerable<Score>> GetRanking()
+        public Task<IEnumerable<Score>> GetRanking(List<DataLayer.Entities.Game> games)
         {
 
             throw new System.NotImplementedException();
+        }
+
+        public async Task<IEnumerable<DataLayer.Entities.Game>> GetAllGames()
+        {
+            var games = await _gameRepository.GetAllGames();
+            return games;
         }
         
 
@@ -76,6 +85,13 @@ namespace Domain
 
 
         }
+
+        public static Domain.Game ToDomainGame(DataLayer.Entities.Game game)
+        {
+            return new Domain.Game(ToDomainPlayer(game.Player1), ToDomainPlayer(game.Player2));
+           
+        }
+
     }
 
 
