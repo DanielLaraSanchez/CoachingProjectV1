@@ -12,6 +12,6 @@
     <PackageReference Include="MailKit" Version="2.1.4" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\DataLayer.csproj" />
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
   </ItemGroup>
 </Project>

@@ -43,12 +43,12 @@ namespace DataLayer
         {
             DataLayer.Entities.Game game;
             var options = new DbContextOptionsBuilder();
-            using (var context = new PoolChampionContext(options.Options)
+            using (var context = new PoolChampionContext(options.Options))
             {
-                game =
+                game = await context.Games.FindAsync(id);
             }
-            
-           
+
+            return game;
         }
     }
 }

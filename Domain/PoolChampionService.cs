@@ -25,12 +25,17 @@ namespace Domain
             return null;
         }
 
-        public Task<Game> Confirm(long playerId, long gameId)
+        public async Task<Game> Confirm(long playerId, long gameId)
         {
-            var player = _playerRepository.GetPlayer(playerId);
-            var game = _gameRepository.GetGame(gameId);
-            player.
+            var player = await _playerRepository.GetPlayer(playerId);
+            var game = await  _gameRepository.GetGame(gameId);
 
+            var domainPlayer = ToDomainPlayer(player);
+            var domainGame = ToDomainGame(game);
+
+            domainPlayer.ConfirmGame(domainGame);
+
+            
             return null;
         }
 
@@ -51,10 +56,19 @@ namespace Domain
 
  
 
-        public Task<IEnumerable<Score>> GetRanking(List<DataLayer.Entities.Game> games)
+        public IEnumerable<Score> GetRanking(List<DataLayer.Entities.Game> games)
         {
+            List<Domain.Game> domainGames = new List<Domain.Game>();
+            
+            foreach (var game in games)
+            {
+                Domain.Game domainGame = ToDomainGame(game);
+                domainGames.Add(domainGame);
+            }
+            Ranking ranking = new Ranking();
+            IEnumerable<Score> scores = ranking.CalculateScores(domainGames);
 
-            throw new System.NotImplementedException();
+            return scores;
         }
 
         public async Task<IEnumerable<DataLayer.Entities.Game>> GetAllGames()
@@ -88,8 +102,14 @@ namespace Domain
 
         public static Domain.Game ToDomainGame(DataLayer.Entities.Game game)
         {
-            return new Domain.Game(ToDomainPlayer(game.Player1), ToDomainPlayer(game.Player2));
-           
+            return new Domain.Game(ToDomainPlayer(game.Player1), ToDomainPlayer(game.Player2))
+            {
+                Winner = ToDomainPlayer(game.Winner),
+                IsConfirmed = game.IsConfirmed,
+                TimeStamp = game.CreationTimeStamp,
+                Creator = ToDomainPlayer(game.Creator)
+            };
+
         }
 
     }

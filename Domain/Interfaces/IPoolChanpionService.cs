@@ -11,8 +11,8 @@ namespace Domain.Interfaces
         //Games
         Task<IEnumerable<DataLayer.Entities.Game>> GetAllGames();
         Task<Game> CreateGame(DataLayer.Entities.Player player1, DataLayer.Entities.Player player2);
-        Task<Game> Confirm(long id);
+        Task<Game> Confirm(long playerId, long gameId);
         //Ranking
-        Task<IEnumerable<Score>> GetRanking(List<DataLayer.Entities.Game> games);
+        IEnumerable<Score> GetRanking(List<DataLayer.Entities.Game> games);
     }
 }

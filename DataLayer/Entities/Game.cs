@@ -13,8 +13,9 @@ namespace DataLayer.Entities
         public virtual Player Player1 { get; set; }
         [Required]
         public virtual Player Player2 { get; set; }
-        public bool? Playery1Won { get; set; }
+        public virtual Player Winner { get; set; }
         public bool IsConfirmed { get; set; }
         public DateTime CreationTimeStamp { get; }
+        public Player Creator { get; set; }
     }
 }

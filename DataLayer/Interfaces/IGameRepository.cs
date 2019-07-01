@@ -9,6 +9,7 @@ namespace DataLayer
    public interface IGameRepository
     {
         Task<IEnumerable<Entities.Game>> GetAllGames();
+        Task<Entities.Game> GetGame(long id);
         Task<Entities.Game> AddGame(Player player1, Player player2);
 
     }

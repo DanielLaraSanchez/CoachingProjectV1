@@ -10,7 +10,7 @@ namespace Domain
         public Player Player2 { get; set; }
         public Player Winner { get; set; }
         public Boolean IsConfirmed { get; internal set; }
-        public DateTime TimeStamp { get; }
+        public DateTime TimeStamp { get; set; }
         public Player Creator { get; set; }
 
 

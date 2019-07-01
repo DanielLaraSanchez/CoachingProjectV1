@@ -23,7 +23,8 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult> GetRanking(List<DataLayer.Entities.Game> games )
         {
-            return new OkObjectResult (await _poolChampion.GetRanking(games));
+            //return new OkObjectResult (await _poolChampion.GetRanking(games));
+            return new OkResult();
         }
     }
 }

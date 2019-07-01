@@ -8,7 +8,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainTest", "DomainTest\Do
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{6281EE3D-5A9A-45AC-B344-2D560E25ED45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "ClassLibrary1\DataLayer.csproj", "{B9340E99-6452-461F-84C7-B01E9596D717}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{B9340E99-6452-461F-84C7-B01E9596D717}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DataLayer;
-using DataLayer.Entities;
+﻿using DataLayer.Entities;
 using Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {
@@ -30,9 +24,9 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> ConfirmGame(long id)
+        public async Task<IActionResult> ConfirmGame(long playerId, long gameId)
         {
-            return new OkObjectResult(await _poolChampion.Confirm(id));
+            return new OkObjectResult(await _poolChampion.Confirm(playerId, gameId));
         }
     }
 }
