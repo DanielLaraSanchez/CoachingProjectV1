@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Domain;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using DataLayer.Entities;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,10 +22,11 @@ namespace API.Controllers
         }
         
         [HttpGet]
-        public async Task<ActionResult> GetRanking(List<DataLayer.Entities.Game> games )
+        public  ActionResult GetRanking(List<DataLayer.Entities.Game> games )
         {
-            //return new OkObjectResult (await _poolChampion.GetRanking(games));
-            return new OkResult();
+            return new OkObjectResult (_poolChampion.GetRanking(games));
         }
     }
+
+
 }

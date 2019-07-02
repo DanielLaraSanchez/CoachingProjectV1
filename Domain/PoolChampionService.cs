@@ -56,7 +56,7 @@ namespace Domain
 
  
 
-        public IEnumerable<Score> GetRanking(List<DataLayer.Entities.Game> games)
+        public  IEnumerable<Score> GetRanking(List<DataLayer.Entities.Game> games)
         {
             List<Domain.Game> domainGames = new List<Domain.Game>();
             
@@ -66,7 +66,7 @@ namespace Domain
                 domainGames.Add(domainGame);
             }
             Ranking ranking = new Ranking();
-            IEnumerable<Score> scores = ranking.CalculateScores(domainGames);
+            var scores = ranking.CalculateScores(domainGames);
 
             return scores;
         }
