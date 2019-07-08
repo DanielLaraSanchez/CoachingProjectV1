@@ -5,6 +5,7 @@ using Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +30,10 @@ namespace API
             //services.AddScoped<IPlayerRepository<Game>, PlayerRepository>();//IS THIS CREATING THE DEPENDENCY CONTAINER?
             services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddScoped<IPoolChampionService, PoolChampionService>();
-
+            services.AddSpaStaticFiles(c =>
+            {
+                c.RootPath = "poolchampionUI/dist";
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -47,7 +51,20 @@ namespace API
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller}/{action=index}/{id}");
+            });
+            app.UseSpa(spa =>
+            {
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
+                spa.Options.SourcePath = "poolchamipionUI";
+                if (env.IsDevelopment())
+                {
+                    spa.UseAngularCliServer(npmScript: "start");
+                }
+            }); 
         }
     }
 }

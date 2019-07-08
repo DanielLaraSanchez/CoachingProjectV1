@@ -66,9 +66,9 @@ namespace Domain
                 domainGames.Add(domainGame);
             }
             Ranking ranking = new Ranking();
-            var scores = ranking.CalculateScores(domainGames);
+            ranking.CalculateScores(domainGames);
 
-            return scores;
+            return ranking.;
         }
 
         public async Task<IEnumerable<DataLayer.Entities.Game>> GetAllGames()
