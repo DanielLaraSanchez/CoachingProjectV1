@@ -20,7 +20,7 @@ namespace API.Controllers
            return new OkObjectResult( await _poolChampion.GetAllPlayers()); // only returns name and Id.
            
         }
-
+        [HttpPost("{signup}")]
         public async Task<ActionResult> SignUp(PlayerRequest player)
         {
             return new OkObjectResult( await _poolChampion.AddPlayer(player.Name,player.Email)); // all params EXCEPT id

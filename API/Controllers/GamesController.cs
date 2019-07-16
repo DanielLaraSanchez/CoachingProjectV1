@@ -2,6 +2,7 @@
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using API.Requests;
 
 namespace API.Controllers
 {
@@ -17,9 +18,9 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Game>> CreateGame(DataLayer.Entities.Player player1, DataLayer.Entities.Player player2)
+        public async Task<ActionResult<Game>> CreateGame(GameRequest request)
         {
-            await _poolChampion.CreateGame(player1, player2);
+            await _poolChampion.CreateGame(request.Player1, request.Player2);
             return new OkResult();
         }
 

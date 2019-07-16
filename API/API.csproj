@@ -11,11 +11,18 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Staticfiles" Version="2.2.0"></PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
+
+
+
+<!--new config--> 
+
+
 
 </Project>
