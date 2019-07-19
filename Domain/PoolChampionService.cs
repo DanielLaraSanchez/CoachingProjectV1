@@ -21,8 +21,9 @@ namespace Domain
 
         public async Task<Player> AddPlayer(string name, string email)
         {
-            await _playerRepository.AddPlayer(name, email);
-            return null;
+            var player = await _playerRepository.AddPlayer(name, email);
+            return ToDomainPlayer(player);
+            
         }
 
         public async Task<Game> Confirm(long playerId, long gameId)

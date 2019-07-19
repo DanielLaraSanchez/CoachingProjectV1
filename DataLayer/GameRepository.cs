@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer
 {
-    class GameRepository
+    public class GameRepository : IGameRepository
     {
 
         public async Task<Game> AddGame(Player player1, Player player2)

@@ -23,7 +23,15 @@ namespace API.Controllers
         [HttpPost("{signup}")]
         public async Task<ActionResult> SignUp(PlayerRequest player)
         {
-            return new OkObjectResult( await _poolChampion.AddPlayer(player.Name,player.Email)); // all params EXCEPT id
+
+            if (ModelState.IsValid)
+            {
+                var newPlayer = await _poolChampion.AddPlayer(player.Name, player.Email);
+                return Ok(newPlayer); // all params EXCEPT id
+
+            }
+
+            return NotFound();
         }
     }
 }
