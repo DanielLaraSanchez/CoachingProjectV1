@@ -15,7 +15,7 @@ namespace DataLayer
         public async Task<IEnumerable<Entities.Player>> GetAllPlayers()
         {
             var players = new List<Player>();
-            var options = new DbContextOptionsBuilder();
+            var options = new DbContextOptionsBuilder<PoolChampionContext>();
             using (var context = new PoolChampionContext(options.Options))
             {
                  players = await context.Players.ToListAsync();
@@ -27,7 +27,7 @@ namespace DataLayer
         public async Task<DataLayer.Entities.Player> GetPlayer(long id)
         {
             DataLayer.Entities.Player player;
-            var options = new DbContextOptionsBuilder();
+            var options = new DbContextOptionsBuilder<PoolChampionContext>();
             using (var context = new PoolChampionContext(options.Options))
             {
                 player = await context.Players.FindAsync(id);
@@ -37,7 +37,7 @@ namespace DataLayer
 
         public async Task<Player> AddPlayer(string name, string email)
         { 
-            var options = new DbContextOptionsBuilder();
+            var options = new DbContextOptionsBuilder<PoolChampionContext>();
             using (var context = new PoolChampionContext(options.Options))
             {
                 if (!context.Players.Any(x => x.EmailAddress == email))
