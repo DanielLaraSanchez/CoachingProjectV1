@@ -5,7 +5,8 @@ namespace DataLayer
 {
     public  class PoolChampionContext : DbContext
     {
-        public PoolChampionContext( DbContextOptions options) : base(options)
+        public PoolChampionContext( DbContextOptions<PoolChampionContext> options)
+            : base(options)
         {
         }
       

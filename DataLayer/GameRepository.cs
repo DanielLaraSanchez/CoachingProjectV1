@@ -12,7 +12,7 @@ namespace DataLayer
 
         public async Task<Game> AddGame(Player player1, Player player2)
         {
-            var options = new DbContextOptionsBuilder();
+            var options = new DbContextOptionsBuilder<PoolChampionContext>();
             using (var context = new PoolChampionContext(options.Options))
             {
                 var game = new Entities.Game()
@@ -30,7 +30,7 @@ namespace DataLayer
 
         public async Task<IEnumerable<Game>> GetAllGames()
         {
-            var options = new DbContextOptionsBuilder();
+            var options = new DbContextOptionsBuilder<PoolChampionContext>();
             using (var context = new PoolChampionContext(options.Options))
             {
 
@@ -42,7 +42,7 @@ namespace DataLayer
         public async Task<DataLayer.Entities.Game> GetGame(long id)
         {
             DataLayer.Entities.Game game;
-            var options = new DbContextOptionsBuilder();
+            var options = new DbContextOptionsBuilder<PoolChampionContext>();
             using (var context = new PoolChampionContext(options.Options))
             {
                 game = await context.Games.FindAsync(id);
