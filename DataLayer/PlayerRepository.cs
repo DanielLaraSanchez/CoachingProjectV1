@@ -1,63 +1,49 @@
 ﻿using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DataLayer
 {
     public class PlayerRepository : IPlayerRepository
     {
+        private readonly PoolChampionContext _context;
 
-
+        public PlayerRepository(PoolChampionContext context)
+        {
+            _context = context;
+        }
         public async Task<IEnumerable<Entities.Player>> GetAllPlayers()
         {
-            var players = new List<Player>();
-            var options = new DbContextOptionsBuilder();
-            using (var context = new PoolChampionContext(options.Options))
-            {
-                 players = await context.Players.ToListAsync();
-            }
-
+            var players = await _context.Players.ToListAsync();
             return players.AsEnumerable();
         }
 
         public async Task<DataLayer.Entities.Player> GetPlayer(long id)
         {
-            DataLayer.Entities.Player player;
-            var options = new DbContextOptionsBuilder();
-            using (var context = new PoolChampionContext(options.Options))
-            {
-                player = await context.Players.FindAsync(id);
-            }
+            var player = await _context.Players.FindAsync(id);
             return player;
         }
 
         public async Task<Player> AddPlayer(string name, string email)
-        { 
-            var options = new DbContextOptionsBuilder();
-            using (var context = new PoolChampionContext(options.Options))
+        {
+            Player player = null;
+            if (!_context.Players.Any(x => x.EmailAddress == email))
             {
-                if (!context.Players.Any(x => x.EmailAddress == email))
+                player = new Entities.Player
                 {
-                    var player = new Entities.Player
-                    {
-                        EmailAddress = email,
-                        Name = name
-                    };
+                    EmailAddress = email,
+                    Name = name
+                };
 
-                    await context.Players.AddAsync(player);
+                await _context.Players.AddAsync(player);
 
-                    await context.SaveChangesAsync();
-                    return player;
-               }
-                return null;
             }
+
+            await _context.SaveChangesAsync();
+            return player;
         }
-
-
-    
+    }   
     }
-}
+
