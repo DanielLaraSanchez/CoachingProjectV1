@@ -17,7 +17,7 @@ namespace API.Controllers
             _poolChampion = poolChanpion;
         }
 
-        [HttpPost]
+        [HttpPost("{creategame}")]
         public async Task<ActionResult<Game>> CreateGame(GameRequest request)
         {
             await _poolChampion.CreateGame(request.Player1, request.Player2);

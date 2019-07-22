@@ -10,45 +10,38 @@ namespace DataLayer
     public class GameRepository : IGameRepository
     {
 
+        private readonly PoolChampionContext _context;
+
+        public GameRepository(PoolChampionContext context)
+        {
+            _context = context;
+        }
+
         public async Task<Game> AddGame(Player player1, Player player2)
         {
-            var options = new DbContextOptionsBuilder<PoolChampionContext>();
-            using (var context = new PoolChampionContext(options.Options))
-            {
+            
                 var game = new Entities.Game()
                 {
                     Player1 = player1,
-                    Player2 = player2
+                    Player2 = player2,
+                    
                 };
-                await context.Games.AddAsync(game);
-                await context.SaveChangesAsync();
+                await _context.Games.AddAsync(game);
+                await _context.SaveChangesAsync();
                 return game;
-            }
-
 
         }
 
         public async Task<IEnumerable<Game>> GetAllGames()
         {
-            var options = new DbContextOptionsBuilder<PoolChampionContext>();
-            using (var context = new PoolChampionContext(options.Options))
-            {
-
-                var games = await context.Games.ToListAsync();
+                var games = await _context.Games.ToListAsync();
                 return games;
-            }
         }
 
         public async Task<DataLayer.Entities.Game> GetGame(long id)
         {
-            DataLayer.Entities.Game game;
-            var options = new DbContextOptionsBuilder<PoolChampionContext>();
-            using (var context = new PoolChampionContext(options.Options))
-            {
-                game = await context.Games.FindAsync(id);
-            }
-
-            return game;
+               var game = await _context.Games.FindAsync(id);
+                return game;
         }
     }
 }

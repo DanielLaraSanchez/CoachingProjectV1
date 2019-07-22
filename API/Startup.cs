@@ -26,11 +26,12 @@ namespace API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<PoolChampionContext>(options =>
-    options.UseSqlServer(Configuration.GetConnectionString("PoolChampionDB")));
 
-            //services.AddDbContext<PoolChampionContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:PoolChampionDB"]));
-            //services.AddScoped<IPlayerRepository<Game>, PlayerRepository>();//IS THIS CREATING THE DEPENDENCY CONTAINER?
+            services.AddDbContext<PoolChampionContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:PoolChampionDB"]));
+            //services.AddDbContext<PoolChampionContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("PoolChampionDB")));
+
+
             services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddScoped<IGameRepository, GameRepository>();
             services.AddScoped<IPoolChampionService, PoolChampionService>();
