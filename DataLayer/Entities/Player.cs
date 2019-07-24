@@ -14,5 +14,8 @@ namespace DataLayer.Entities
         [MaxLength(100)]
         [Required]
         public string EmailAddress { get; set; }
+        [MaxLength(100)]
+        [Required]
+        public string Password { get; set; }
     }
 }

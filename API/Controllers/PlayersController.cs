@@ -26,7 +26,7 @@ namespace API.Controllers
 
             if (ModelState.IsValid)
             {
-                var newPlayer = await _poolChampion.AddPlayer(player.Name, player.Email);
+                var newPlayer = await _poolChampion.AddPlayer(player.Name, player.EmailAddress, player.Password);
                 return Ok(newPlayer); // all params EXCEPT id
 
             }

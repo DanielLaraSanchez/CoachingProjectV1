@@ -10,12 +10,12 @@ namespace DataLayer.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long GameId { get; set; }
         [Required]
-        public virtual Player Player1 { get; set; }
+        public long Player1Id { get; set; }
         [Required]
-        public virtual Player Player2 { get; set; }
-        public virtual Player Winner { get; set; }
+        public long Player2Id { get; set; }
+        public long WinnerId { get; set; }
         public bool IsConfirmed { get; set; }
         public DateTime CreationTimeStamp { get; }
-        public Player Creator { get; set; }
+        public long CreatorId { get; set; }
     }
 }

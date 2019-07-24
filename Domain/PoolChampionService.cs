@@ -19,9 +19,9 @@ namespace Domain
             _gameRepository = gameRepository;
         }
 
-        public async Task<Player> AddPlayer(string name, string email)
+        public async Task<Player> AddPlayer(string name, string emailAddress, string password)
         {
-            var player = await _playerRepository.AddPlayer(name, email);
+            var player = await _playerRepository.AddPlayer(name, emailAddress, password);
             return ToDomainPlayer(player);
             
         }
@@ -57,8 +57,10 @@ namespace Domain
 
  
 
-        public  IEnumerable<Score> GetRanking(List<DataLayer.Entities.Game> games)
+        public async  Task<IEnumerable<Score>> GetRanking()
         {
+            var games = await GetAllGames();
+
             List<Domain.Game> domainGames = new List<Domain.Game>();
             
             foreach (var game in games)
@@ -77,6 +79,18 @@ namespace Domain
             var games = await _gameRepository.GetAllGames();
             return games;
         }
+
+        public async Task<DataLayer.Entities.Game> GetGame(long gameId)
+        {
+            DataLayer.Entities.Game game = await _gameRepository.GetGame(gameId);
+            return game;
+        }
+
+        public async Task<DataLayer.Entities.Player> GetPlayer(long playerId)
+        {
+            DataLayer.Entities.Player player = await _playerRepository.GetPlayer(playerId);
+            return player;
+        }
         
 
 
@@ -93,7 +107,7 @@ namespace Domain
 
         public static Domain.Player ToDomainPlayer(DataLayer.Entities.Player player)
         {
-            return new Domain.Player(player.Name, player.EmailAddress)
+            return new Domain.Player(player.Name, player.EmailAddress, player.Password)
             {
                 Id = player.PlayerId
             };

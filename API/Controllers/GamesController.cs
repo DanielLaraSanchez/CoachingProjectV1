@@ -10,24 +10,24 @@ namespace API.Controllers
     [ApiController]
     public class GamesController : ControllerBase
     {
-        private readonly IPoolChampionService _poolChampion;
+        private readonly IPoolChampionService _poolChampionService;
 
-        public GamesController(IPoolChampionService poolChanpion)
+        public GamesController(IPoolChampionService poolChanpionService)
         {
-            _poolChampion = poolChanpion;
+            _poolChampionService = poolChanpionService;
         }
 
         [HttpPost("{creategame}")]
         public async Task<ActionResult<Game>> CreateGame(GameRequest request)
         {
-            await _poolChampion.CreateGame(request.Player1, request.Player2);
+            await _poolChampionService.CreateGame(request.Player1, request.Player2);
             return new OkResult();
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> ConfirmGame(long playerId, long gameId)
         {
-            return new OkObjectResult(await _poolChampion.Confirm(playerId, gameId));
+            return new OkObjectResult(await _poolChampionService.Confirm(playerId, gameId));
         }
     }
 }

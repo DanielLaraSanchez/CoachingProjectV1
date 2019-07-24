@@ -21,10 +21,12 @@ namespace API.Controllers
             _poolChampion = poolChampion;
         }
         
-        [HttpGet]
-        public  ActionResult GetRanking(List<DataLayer.Entities.Game> games )
+        [HttpGet("{getranking}")]
+        public async Task<ActionResult> GetRanking()
         {
-            return new OkObjectResult (_poolChampion.GetRanking(games));
+
+            var ranking = await _poolChampion.GetRanking();
+            return  Ok(ranking);
         }
     }
 

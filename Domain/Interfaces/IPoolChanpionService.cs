@@ -7,12 +7,12 @@ namespace Domain.Interfaces
     {
         //Players
         Task<IEnumerable<Player>> GetAllPlayers();
-        Task<Player> AddPlayer(string name, string email);
+        Task<Player> AddPlayer(string name, string emailAddress, string password);
         //Games
         Task<IEnumerable<DataLayer.Entities.Game>> GetAllGames();
         Task<Game> CreateGame(DataLayer.Entities.Player player1, DataLayer.Entities.Player player2);
         Task<Game> Confirm(long playerId, long gameId);
         //Ranking
-        IEnumerable<Score> GetRanking(List<DataLayer.Entities.Game> games);
+        Task<IEnumerable<Score>> GetRanking();
     }
 }

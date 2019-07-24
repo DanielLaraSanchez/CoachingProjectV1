@@ -11,6 +11,7 @@ namespace Domain
         
         public string Name { get; set; }
         public string EmailAddress { get; set; }
+        public string Password { get; set; }
 
        
 
@@ -19,10 +20,11 @@ namespace Domain
             Name = name;
         }
 
-        public Player(string name, string emailAddress)
+        public Player(string name, string emailAddress, string password)
         {
             Name = name;
             EmailAddress = emailAddress;
+            Password = password;
         }
 
         public void ConfirmGame(Game game)

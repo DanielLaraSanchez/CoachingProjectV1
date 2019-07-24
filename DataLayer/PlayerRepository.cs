@@ -26,15 +26,16 @@ namespace DataLayer
             return player;
         }
 
-        public async Task<Player> AddPlayer(string name, string email)
+        public async Task<Player> AddPlayer(string name, string emailAddress, string password)
         {
             Player player = null;
-            if (!_context.Players.Any(x => x.EmailAddress == email))
+            if (!_context.Players.Any(x => x.EmailAddress == emailAddress))
             {
                 player = new Entities.Player
                 {
-                    EmailAddress = email,
-                    Name = name
+                    EmailAddress = emailAddress,
+                    Name = name,
+                    Password = password
                 };
 
                 await _context.Players.AddAsync(player);

@@ -22,8 +22,8 @@ namespace DataLayer
             
                 var game = new Entities.Game()
                 {
-                    Player1 = player1,
-                    Player2 = player2,
+                    Player1Id = player1.PlayerId,
+                    Player2Id = player2.PlayerId,
                     
                 };
                 await _context.Games.AddAsync(game);

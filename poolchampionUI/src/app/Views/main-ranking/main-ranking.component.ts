@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/Services/data.service';
 
 @Component({
   selector: 'app-main-ranking',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainRankingComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _dataService: DataService) { }
 
   ngOnInit() {
+
+    this.getRanking();
+  }
+
+
+  public getRanking(){
+    this._dataService.getRanking().subscribe(x => console.log(x));
   }
 
 }
