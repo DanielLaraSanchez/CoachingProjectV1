@@ -115,8 +115,11 @@ namespace Domain
 
         }
 
-        public static Domain.Game ToDomainGame(DataLayer.Entities.Game game)
+        public async Task<Domain.Game> ToDomainGame(DataLayer.Entities.Game game)
         {
+
+            DataLayer.Entities.Player player1 =  await GetPlayer(game.Player1Id);
+
             return new Domain.Game(ToDomainPlayer(game.Player1), ToDomainPlayer(game.Player2))
             {
                 Winner = ToDomainPlayer(game.Winner),
