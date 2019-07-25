@@ -21,6 +21,12 @@ namespace Domain
             TimeStamp = DateTime.Now;
         }
 
+
+        public void ConfirmGame()
+        {
+            IsConfirmed = true;
+        }
+
         public EmailSender EmailSender()
         {
             return new EmailSender();

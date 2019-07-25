@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer.Entities;
@@ -35,7 +36,7 @@ namespace DataLayer
         public async Task<IEnumerable<Game>> GetAllGames()
         {
                 var games = await _context.Games.ToListAsync();
-                return games;
+                return games.AsEnumerable();
         }
 
         public async Task<DataLayer.Entities.Game> GetGame(long id)

@@ -32,7 +32,7 @@ namespace Domain
             var game = await  _gameRepository.GetGame(gameId);
 
             var domainPlayer = ToDomainPlayer(player);
-            var domainGame = ToDomainGame(game);
+            var domainGame = await ToDomainGame(game);
 
             domainPlayer.ConfirmGame(domainGame);
 
@@ -65,7 +65,7 @@ namespace Domain
             
             foreach (var game in games)
             {
-                Domain.Game domainGame = ToDomainGame(game);
+                Domain.Game domainGame = await ToDomainGame(game);
                 domainGames.Add(domainGame);
             }
             Ranking ranking = new Ranking();
@@ -117,15 +117,17 @@ namespace Domain
 
         public async Task<Domain.Game> ToDomainGame(DataLayer.Entities.Game game)
         {
-
             DataLayer.Entities.Player player1 =  await GetPlayer(game.Player1Id);
+            DataLayer.Entities.Player player2 = await GetPlayer(game.Player2Id);
+            DataLayer.Entities.Player winner = await GetPlayer(game.WinnerId);
+            DataLayer.Entities.Player creator = await GetPlayer(game.CreatorId);
 
-            return new Domain.Game(ToDomainPlayer(game.Player1), ToDomainPlayer(game.Player2))
+            return new Domain.Game(ToDomainPlayer(player1), ToDomainPlayer(player2))
             {
-                Winner = ToDomainPlayer(game.Winner),
+                Winner = ToDomainPlayer(winner),
                 IsConfirmed = game.IsConfirmed,
                 TimeStamp = game.CreationTimeStamp,
-                Creator = ToDomainPlayer(game.Creator)
+                Creator = ToDomainPlayer(creator)
             };
 
         }

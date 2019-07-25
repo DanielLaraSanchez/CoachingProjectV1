@@ -9,17 +9,13 @@ namespace Domain
     {
         public long Id { get; set; }
         
-        public string Name { get; set; }
-        public string EmailAddress { get; set; }
-        public string Password { get; set; }
+        public string Name { get; internal set; }
+        public string EmailAddress { get; internal set; }
+        public string Password { get; internal set; }
 
        
 
-         public Player (string name)
-        {
-            Name = name;
-        }
-
+   
         public Player(string name, string emailAddress, string password)
         {
             Name = name;
@@ -31,7 +27,7 @@ namespace Domain
         {
             if((game.Player1.Name == this.Name || game.Player2.Name == this.Name) && this.Name != game.Creator.Name)
             {
-                game.IsConfirmed = true;//here we will have to wait for the confirmation coming back from player that has been sent a link to the confirmation modal.
+                game.ConfirmGame();//here we will have to wait for the confirmation coming back from player that has been sent a link to the confirmation modal.
 
             }
         }

@@ -8895,6 +8895,7 @@
         "netcoreapp2.2"
       ],
       "sources": {
+        "C:\\": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "\\\\pse-build01\\wwwroot\\nuget-repo-dev\\Packages": {},
         "\\\\pse-build01\\wwwroot\\nuget-repo\\Packages": {},

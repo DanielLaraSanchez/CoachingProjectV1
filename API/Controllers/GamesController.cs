@@ -17,6 +17,13 @@ namespace API.Controllers
             _poolChampionService = poolChanpionService;
         }
 
+        [HttpGet("{getgames}")]
+        public async Task<ActionResult<Game>> GetAllGames()
+        {
+            var games = await _poolChampionService.GetAllGames();
+            return Ok(games);
+        }
+
         [HttpPost("{creategame}")]
         public async Task<ActionResult<Game>> CreateGame(GameRequest request)
         {
@@ -29,5 +36,7 @@ namespace API.Controllers
         {
             return new OkObjectResult(await _poolChampionService.Confirm(playerId, gameId));
         }
+
+
     }
 }
