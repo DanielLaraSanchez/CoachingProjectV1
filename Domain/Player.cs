@@ -9,11 +9,14 @@ namespace Domain
     {
         public long Id { get; set; }
         
-        public string Name { get; internal set; }
-        public string EmailAddress { get; internal set; }
+        public string Name { get;  set; }
+        public string EmailAddress { get;  set; }
         public string Password { get; internal set; }
 
-       
+        public Player(string name)
+        {
+            Name = name;
+        }
 
    
         public Player(string name, string emailAddress, string password)

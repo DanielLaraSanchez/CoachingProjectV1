@@ -1,0 +1,7 @@
+.customWidthClass{
+    width: 200px;
+}
+
+.mat-row:hover {
+    background-color: #ffe6e6;
+  }

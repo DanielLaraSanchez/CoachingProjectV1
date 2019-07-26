@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Domain.Interfaces;
+using System.Dynamic;
 
 
 //IEnumerable, List, Array? why can i not use linq to order by with list. what is the difference between all of them?
@@ -81,6 +82,7 @@ namespace Domain
 
        public IEnumerable<string> GetAllPlayerNames(List<Game> games)
         {
+            
             var arrayNames = new List<string>();
             foreach (Game game in games)
             {

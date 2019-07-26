@@ -9,13 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { MainRankingComponent } from './Views/main-ranking/main-ranking.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
 import { LoginPageComponent } from './Views/login-page/login-page.component';
 import { LoginComponent } from './Components/login/login.component';
 
 
+//Material Components
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { LoginComponent } from './Components/login/login.component';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
