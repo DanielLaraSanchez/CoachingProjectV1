@@ -15,12 +15,15 @@ namespace API.Controllers
             _poolChampion = poolChampion;
         }
 
+
+        [HttpGet("getplayers")]
         public async Task<ActionResult> GetPlayers()
         {
            return new OkObjectResult( await _poolChampion.GetAllPlayers()); // only returns name and Id.
            
         }
-        [HttpPost("{signup}")]
+
+        [HttpPost("signup")]
         public async Task<ActionResult> SignUp(PlayerRequest player)
         {
 
@@ -29,6 +32,19 @@ namespace API.Controllers
                 var newPlayer = await _poolChampion.AddPlayer(player.Name, player.EmailAddress, player.Password);
                 return Ok(newPlayer); // all params EXCEPT id
 
+            }
+
+            return NotFound();
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult> LogIn(PlayerRequest player)
+        {
+          
+            if (ModelState.IsValid)
+            {
+              var  playerLoggingIn = await _poolChampion.GetPlayerLoggedIn(player.EmailAddress, player.Password);
+                return Ok(playerLoggingIn);
             }
 
             return NotFound();

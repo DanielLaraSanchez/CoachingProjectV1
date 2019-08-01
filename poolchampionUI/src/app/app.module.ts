@@ -12,12 +12,20 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginPageComponent } from './Views/login-page/login-page.component';
 import { LoginComponent } from './Components/login/login.component';
+import { AddGameModalComponent } from './Modals/add-game-modal/add-game-modal.component';
 
 
 //Material Components
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+
+
+//other external libraries
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 
 @NgModule({
@@ -25,7 +33,9 @@ import {MatTableModule} from '@angular/material/table';
     AppComponent,
     MainRankingComponent,
     LoginPageComponent,
-    LoginComponent
+    LoginComponent,
+    AddGameModalComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -37,9 +47,16 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatSelectModule,
+    //other external libraries
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AddGameModalComponent
+  ]
 })
 export class AppModule { }

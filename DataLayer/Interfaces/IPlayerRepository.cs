@@ -8,5 +8,6 @@ namespace DataLayer
         Task<IEnumerable<Entities.Player>> GetAllPlayers();
         Task<Entities.Player> AddPlayer(string name, string email, string password);
         Task<Entities.Player> GetPlayer(long id);
+        Task<Entities.Player> GetPlayerLoggedIn(string email, string password);
     }
 }

@@ -1,0 +1,39 @@
+<div class="container-fluid" id="user-selection-container">
+  <div class="row align-items-center justify-content-around" id="user-selection-row">
+    <div class="col-lg-4 text-center">
+      <h1>{{userDetails.name}}</h1>
+    </div>
+    <div class="col-lg-2"><h3>VS</h3></div>
+    <div class="col-lg-4 text-center">
+      <h1>Player 2</h1>
+      <mat-form-field>
+        <mat-label>Oponent</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="oponent" (ngModelChange)="selectWinner()">
+          <mat-option *ngFor="let player of players" [value]="player">
+            {{player.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  </div>
+  <div class="row align-items-center justify-content-center">
+    <div class="col-lg-6 text-center" *ngIf="playersInSingleGame.length > 1">
+
+      <h1>winner</h1>
+
+      <mat-form-field>
+        <mat-label>Winner</mat-label>
+        <mat-select [(ngModel)]="selectedValue1" name="winner">
+          <mat-option *ngFor="let player of playersInSingleGame" [value]="player">
+            {{player.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row align-items-center justify-content-center" id="submit-button-row">
+    <button mat-raised-button color="primary" (click)="addGame(selectedValue)">Add New Game</button>
+  </div>
+
+</div>

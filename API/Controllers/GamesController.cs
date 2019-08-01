@@ -17,14 +17,14 @@ namespace API.Controllers
             _poolChampionService = poolChanpionService;
         }
 
-        [HttpGet("{getgames}")]
+        [HttpGet("getgames")]
         public async Task<ActionResult<Game>> GetAllGames()
         {
             var games = await _poolChampionService.GetAllGames();
             return Ok(games);
         }
 
-        [HttpPost("{creategame}")]
+        [HttpPost("creategame")]
         public async Task<ActionResult<Game>> CreateGame(GameRequest request)
         {
             await _poolChampionService.CreateGame(request.Player1, request.Player2);

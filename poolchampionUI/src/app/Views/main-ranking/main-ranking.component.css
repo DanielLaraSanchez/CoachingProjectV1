@@ -1,5 +1,15 @@
+#top-header{
+    height:300px;
+    background: #ffe000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffe000, #799f0c); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffe000, #799f0c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */}
+
 .customWidthClass{
-    width: 200px;
+    width: 900px;
+}
+
+.customPositionWidthClass{
+    width:150px;
 }
 
 .mat-row:hover {

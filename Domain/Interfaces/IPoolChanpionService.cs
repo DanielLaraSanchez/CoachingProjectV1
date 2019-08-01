@@ -14,5 +14,6 @@ namespace Domain.Interfaces
         Task<Game> Confirm(long playerId, long gameId);
         //Ranking
         Task<IEnumerable<Score>> GetRanking();
+        Task<DataLayer.Entities.Player> GetPlayerLoggedIn(string emailAddress, string password);
     }
 }

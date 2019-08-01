@@ -18,6 +18,14 @@ public addPlayer(player: Player){
   return this._http.post(`${this.URL}/Players/signup/`, player)
 }
 
+public getPlayers(){
+  return this._http.get(`${this.URL}/Players/getplayers`)
+}
+
+public logIn(player: Player){
+  return this._http.post(`${this.URL}/Players/login/`, player)
+}
+
 //Game Data
 
 

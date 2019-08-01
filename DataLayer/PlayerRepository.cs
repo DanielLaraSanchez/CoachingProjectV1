@@ -1,7 +1,9 @@
-﻿using DataLayer.Entities;
+﻿using System;
+using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace DataLayer
@@ -45,6 +47,36 @@ namespace DataLayer
             await _context.SaveChangesAsync();
             return player;
         }
+
+        public async Task<Player> GetPlayerLoggedIn(string email, string password)
+        {
+            Player player = null;
+            try
+            {
+                 player = await _context.Players.Where(x => x.EmailAddress == email).Where(x => x.Password == password).FirstOrDefaultAsync(); //or SingleAsync
+
+                if (player.EmailAddress != null)
+                {
+                    return player;
+                }
+               
+            }
+            catch (NullReferenceException error)
+            {
+                Console.WriteLine(error.Message);
+            }
+
+            return player;
+        }
+
+        public bool CheckIfPasswordIsCorrect(string passwordUi, string passwordDb)
+        {
+            bool result = passwordUi == passwordDb;
+
+            return result;
+        }
+
+
     }   
-    }
+ }
 

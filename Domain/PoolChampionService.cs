@@ -132,6 +132,12 @@ namespace Domain
 
         }
 
+        public async Task<DataLayer.Entities.Player> GetPlayerLoggedIn(string email, string password)
+        {
+            var player = await _playerRepository.GetPlayerLoggedIn(email, password);
+            return player;
+        }
+
     }
 
 
