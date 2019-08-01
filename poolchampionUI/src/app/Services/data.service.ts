@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Player } from '../Models/player'
+import { Game } from '../Models/game';
 
 
 @Injectable({
@@ -27,7 +28,9 @@ public logIn(player: Player){
 }
 
 //Game Data
-
+public addGame(game: Game){
+  return this._http.post(`${this.URL}/Games/creategame`, game)
+}
 
 
 //Ranking Data

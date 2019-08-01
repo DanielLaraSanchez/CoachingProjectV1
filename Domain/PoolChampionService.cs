@@ -40,12 +40,13 @@ namespace Domain
             return null;
         }
 
-        public Task<Game> CreateGame(DataLayer.Entities.Player player1, DataLayer.Entities.Player player2)
-        {
-             _gameRepository.AddGame(player1, player2);
+        //public Task<Game> CreateGame(Domain.G)
+        //{
+        //    Game newGame = new Game(game.Player1);
+        //     _gameRepository.AddGame(game);
 
-            return null;
-        }
+        //    return null;
+        //}
 
         public async Task<IEnumerable<Player>> GetAllPlayers()
         {

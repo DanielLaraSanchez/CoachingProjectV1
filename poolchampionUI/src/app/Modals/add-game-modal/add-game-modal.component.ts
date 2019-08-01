@@ -1,7 +1,8 @@
-import { Component, OnInit, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DataService } from 'src/app/Services/data.service';
 import { Player } from 'src/app/Models/player';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import { Game } from 'src/app/Models/game';
 
 
 @Component({
@@ -9,11 +10,13 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   templateUrl: './add-game-modal.component.html',
   styleUrls: ['./add-game-modal.component.css']
 })
-export class AddGameModalComponent implements OnInit, OnChanges {
-userDetails: object = {};
+export class AddGameModalComponent implements OnInit {
+userDetails;
 players : Player[];
 playersInSingleGame = [];
-selectedValue;
+oponent;
+winner;
+
 
 
 
@@ -27,19 +30,19 @@ selectedValue;
     console.log(this.userDetails)
   }
 
-  ngOnChanges() {
-  }
-
-  selectWinner(){
+ 
+  selectOponent(){
     if(this.playersInSingleGame.length < 2){
-      this.playersInSingleGame.push(this.selectedValue)
+      this.playersInSingleGame.push(this.oponent)
       console.log(this.playersInSingleGame)
     }else{
       this.playersInSingleGame.pop()
-      this.playersInSingleGame.push(this.selectedValue)
+      this.playersInSingleGame.push(this.oponent)
 
     }
   }
+
+
 
   public getPlayers(){
     this._dataService.getPlayers().subscribe(x => {
@@ -48,9 +51,19 @@ selectedValue;
     })
   }
 
-  public addGame(oponent){
-    console.log(oponent)
-    this.dialog.closeAll()
+  public addGame(){
+    let newGame = new Game();
+    newGame.Player1 = this.playersInSingleGame[0];
+    newGame.Player2 = this.playersInSingleGame[1];
+    newGame.Creator = this.playersInSingleGame[0];
+    newGame.Winner = this.winner;
 
+    console.log(newGame)
+    this._dataService.addGame(newGame).subscribe(x => console.log(x));
+    this.dialog.closeAll()
+  }
+
+  public selectWinner(){
+    console.log(this.winner)
   }
 }

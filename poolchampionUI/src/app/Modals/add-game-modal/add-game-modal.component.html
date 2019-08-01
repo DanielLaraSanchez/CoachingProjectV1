@@ -3,12 +3,12 @@
     <div class="col-lg-4 text-center">
       <h1>{{userDetails.name}}</h1>
     </div>
-    <div class="col-lg-2"><h3>VS</h3></div>
+    <div class="col-lg-2 text-center"><h3>VS</h3></div>
     <div class="col-lg-4 text-center">
       <h1>Player 2</h1>
       <mat-form-field>
         <mat-label>Oponent</mat-label>
-        <mat-select [(ngModel)]="selectedValue" name="oponent" (ngModelChange)="selectWinner()">
+        <mat-select [(ngModel)]="oponent" name="oponent" (ngModelChange)="selectOponent()">
           <mat-option *ngFor="let player of players" [value]="player">
             {{player.name}}
           </mat-option>
@@ -24,7 +24,7 @@
 
       <mat-form-field>
         <mat-label>Winner</mat-label>
-        <mat-select [(ngModel)]="selectedValue1" name="winner">
+        <mat-select [(ngModel)]="winner" name="winner" (ngModelChange)="selectWinner()">
           <mat-option *ngFor="let player of playersInSingleGame" [value]="player">
             {{player.name}}
           </mat-option>
