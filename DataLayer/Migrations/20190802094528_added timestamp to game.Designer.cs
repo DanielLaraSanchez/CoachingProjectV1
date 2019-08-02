@@ -4,14 +4,16 @@ using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(PoolChampionContext))]
-    partial class PoolChampionContextModelSnapshot : ModelSnapshot
+    [Migration("20190802094528_added timestamp to game")]
+    partial class addedtimestamptogame
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +46,7 @@ namespace DataLayer.Migrations
 
             modelBuilder.Entity("DataLayer.Entities.Player", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<long>("PlayerId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -60,7 +62,7 @@ namespace DataLayer.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
-                    b.HasKey("Id");
+                    b.HasKey("PlayerId");
 
                     b.ToTable("Players");
                 });

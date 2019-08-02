@@ -10,7 +10,7 @@ namespace Domain.Interfaces
         Task<Player> AddPlayer(string name, string emailAddress, string password);
         //Games
         Task<IEnumerable<DataLayer.Entities.Game>> GetAllGames();
-        Task<Game> CreateGame(DataLayer.Entities.Player player1, DataLayer.Entities.Player player2);
+        Task<DataLayer.Entities.Game> CreateGame(Domain.Game game);
         Task<Game> Confirm(long playerId, long gameId);
         //Ranking
         Task<IEnumerable<Score>> GetRanking();

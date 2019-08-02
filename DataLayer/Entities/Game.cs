@@ -15,7 +15,7 @@ namespace DataLayer.Entities
         public long Player2Id { get; set; }
         public long WinnerId { get; set; }
         public bool IsConfirmed { get; set; }
-        public DateTime CreationTimeStamp { get; }
+        public DateTime CreationTimeStamp { get; set; }
         public long CreatorId { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Player } from '../Models/player'
 import { Game } from '../Models/game';
 
@@ -29,7 +29,13 @@ public logIn(player: Player){
 
 //Game Data
 public addGame(game: Game){
-  return this._http.post(`${this.URL}/Games/creategame`, game)
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })};
+    console.log(JSON.stringify(game), "game")
+  
+  return this._http.post(`${this.URL}/Games/creategame/`, game, httpOptions)
 }
 
 

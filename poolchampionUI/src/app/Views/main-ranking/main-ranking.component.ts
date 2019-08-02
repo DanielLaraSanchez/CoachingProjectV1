@@ -30,7 +30,6 @@ export class MainRankingComponent implements OnInit {
   public getRanking(){
     this._dataService.getRanking().subscribe(x =>{ 
      this.ranking = x;
-     console.log(x)
     });
   }
 

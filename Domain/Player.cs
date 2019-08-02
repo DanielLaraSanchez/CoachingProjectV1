@@ -8,12 +8,18 @@ namespace Domain
     public class Player
     {
         public long Id { get; set; }
-        
-        public string Name { get;  set; }
-        public string EmailAddress { get;  set; }
-        public string Password { get; internal set; }
 
-        public Player(string name)
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
+        public string Password { get; set; }
+
+
+        public Player()
+        {
+
+        }
+
+    public Player(string name)
         {
             Name = name;
         }

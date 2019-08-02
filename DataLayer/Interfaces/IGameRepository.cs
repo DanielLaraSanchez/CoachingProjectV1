@@ -10,7 +10,7 @@ namespace DataLayer
     {
         Task<IEnumerable<Entities.Game>> GetAllGames();
         Task<Entities.Game> GetGame(long id);
-        Task<Entities.Game> AddGame(Player player1, Player player2);
+        Task<Entities.Game> AddGame(Game game);
 
     }
 }

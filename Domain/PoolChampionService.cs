@@ -40,13 +40,17 @@ namespace Domain
             return null;
         }
 
-        //public Task<Game> CreateGame(Domain.G)
-        //{
-        //    Game newGame = new Game(game.Player1);
-        //     _gameRepository.AddGame(game);
+        public async Task<DataLayer.Entities.Game> CreateGame(Domain.Game game)
+        {
+            Game newDomainGame = new Game(game.Player1, game.Player2);
+            newDomainGame.Creator = game.Creator;
+            newDomainGame.Winner = game.Winner;
+            DataLayer.Entities.Game newEntityGame = ToEntityGame(newDomainGame);
+           
+          var addedGame =  await _gameRepository.AddGame(newEntityGame);
 
-        //    return null;
-        //}
+            return addedGame;
+        }
 
         public async Task<IEnumerable<Player>> GetAllPlayers()
         {
@@ -110,7 +114,7 @@ namespace Domain
         {
             return new Domain.Player(player.Name, player.EmailAddress, player.Password)
             {
-                Id = player.PlayerId
+                Id = player.Id
             };
 
 
@@ -130,6 +134,23 @@ namespace Domain
                 TimeStamp = game.CreationTimeStamp,
                 Creator = ToDomainPlayer(creator)
             };
+
+        }
+
+        public DataLayer.Entities.Game ToEntityGame(Domain.Game game)
+        {
+
+            var newGame = new DataLayer.Entities.Game();
+            newGame.Player1Id = game.Player1.Id;
+            newGame.Player2Id = game.Player2.Id;
+            newGame.CreatorId = game.Creator.Id;
+            newGame.IsConfirmed = game.IsConfirmed;
+            newGame.WinnerId = game.Winner.Id;
+            newGame.CreationTimeStamp = game.TimeStamp;
+
+           
+
+            return newGame;
 
         }
 

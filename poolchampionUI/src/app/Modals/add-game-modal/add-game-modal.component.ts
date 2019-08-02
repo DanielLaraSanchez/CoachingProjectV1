@@ -27,18 +27,15 @@ winner;
 
   ngOnInit() {
     this.getPlayers()
-    console.log(this.userDetails)
   }
 
  
   selectOponent(){
     if(this.playersInSingleGame.length < 2){
       this.playersInSingleGame.push(this.oponent)
-      console.log(this.playersInSingleGame)
     }else{
       this.playersInSingleGame.pop()
       this.playersInSingleGame.push(this.oponent)
-
     }
   }
 
@@ -47,7 +44,6 @@ winner;
   public getPlayers(){
     this._dataService.getPlayers().subscribe(x => {
       this.players = x as Player[];
-      console.log(x, "players")
     })
   }
 
@@ -57,13 +53,10 @@ winner;
     newGame.Player2 = this.playersInSingleGame[1];
     newGame.Creator = this.playersInSingleGame[0];
     newGame.Winner = this.winner;
-
-    console.log(newGame)
     this._dataService.addGame(newGame).subscribe(x => console.log(x));
     this.dialog.closeAll()
   }
 
-  public selectWinner(){
-    console.log(this.winner)
-  }
+
+
 }

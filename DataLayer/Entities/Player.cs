@@ -7,7 +7,7 @@ namespace DataLayer.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long PlayerId { get; set; }
+        public long Id { get; set; }
         [MaxLength(100)]
         [Required]
         public string Name { get; set; }
